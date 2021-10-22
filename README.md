@@ -71,7 +71,7 @@ Airtable
 | --- | :---: |  :---: | :---: | :---: |
 | Planning | H | 3hrs| hrs | hrs |
 | Pseudocode, Readme, Boilerplate| H | 3hrs| hrs | hrs |
-| Set up Auth0, Login and Logout Components | 3H | hrs| hrs | hrs |
+| Set up Auth0, Login and Logout Components | H | 3hrs| hrs | hrs |
 | Airtable | H | 3hrs| hrs | hrs |
 | Character Creation Component| H | 3hrs| hrs | hrs |
 | Start Page and Error page | H | 3hrs| hrs | hrs |
