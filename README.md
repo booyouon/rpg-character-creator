@@ -69,10 +69,10 @@ Airtable
 
 | Component | Priority | Estimated Time | Time Invested | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-| Planning | H | 3hrs| 3.5hrs | 3.5hrs |
+| Planning | H | 3hrs| hrs | hrs |
 | Pseudocode, Readme, Boilerplate| H | 3hrs| hrs | hrs |
-| Set up Auth0, Login and Logout Components | H | hrs| hrs | hrs |
-| Airtable | H | 3hrs| 2.5hrs | 2.5hrs |
+| Set up Auth0, Login and Logout Components | 3H | hrs| hrs | hrs |
+| Airtable | H | 3hrs| hrs | hrs |
 | Character Creation Component| H | 3hrs| hrs | hrs |
 | Start Page and Error page | H | 3hrs| hrs | hrs |
 | Design pixel art | H | 3hrs| hrs | hrs |
