@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./App.css";
+import Character from "./Character";
 
 const ColorPallete = () => {
   const [hairColor, setHairColor] = useState("#000000");
@@ -10,6 +10,13 @@ const ColorPallete = () => {
 
   return (
     <div>
+      <Character
+        hairColor={hairColor}
+        skinColor={skinColor}
+        shirtColor={shirtColor}
+        pantsColor={pantsColor}
+        shoeColor={shoeColor}
+      />
       <label htmlFor="haircolor">Hair Color</label>
       <input
         name="haircolor"
@@ -37,7 +44,7 @@ const ColorPallete = () => {
         onChange={(ev) => setShirtColor(ev.target.value)}
       ></input>
 
-      <label htmlFor="pantscolor">Hair Color</label>
+      <label htmlFor="pantscolor">Pants Color</label>
       <input
         name="pantscolor"
         id="pantscolor"
