@@ -1,6 +1,4 @@
-# Project Overview
-
-## RPG Character Creator
+# RPG Character Creator 
 
 ## Project Description
 
