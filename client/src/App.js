@@ -31,7 +31,7 @@ function App() {
         res.data.records[0] &&
         res.data.records[0].fields.password == password
       ) {
-        console.log("This user exist");
+        console.log("Login Successful");
         setAuthenticated(true);
         setHairColor(res.data.records[0].fields.haircolor);
         setSkinColor(res.data.records[0].fields.skincolor);
@@ -39,7 +39,7 @@ function App() {
         setPantsColor(res.data.records[0].fields.pantscolor);
         setShoeColor(res.data.records[0].fields.shoecolor);
       } else {
-        console.log("This user does not exist");
+        console.log("Login Failed. Please check your username or password.");
       }
     };
     getAirData();
