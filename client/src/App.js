@@ -2,7 +2,7 @@ import "./App.css";
 import { Link, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Login from "./component/Login";
+import Auth from "./component/Auth";
 import CharacterCreation from "./component/CharacterCreation";
 import Welcome from "./component/Welcome";
 import { useHistory } from "react-router-dom";
@@ -48,11 +48,9 @@ function App() {
 
   return (
     <div className="App">
+      <Link to="/login">poop</Link>
       <Route exact path="/">
-        <Welcome />
-      </Route>
-      <Route exact path="/login">
-        <Login
+        <Welcome
           username={username}
           password={password}
           setUsername={setUsername}
@@ -60,6 +58,20 @@ function App() {
           setUserData={setUserData}
           toggleFetch={toggleFetch}
           setToggleFetch={setToggleFetch}
+          authenticated={authenticated}
+        />
+      </Route>
+      <Route exact path="/login">
+        <Auth
+          username={username}
+          password={password}
+          setUsername={setUsername}
+          setPassword={setPassword}
+          setUserData={setUserData}
+          toggleFetch={toggleFetch}
+          setToggleFetch={setToggleFetch}
+          authenticated={authenticated}
+          setAuthenticated={setAuthenticated}
         />
       </Route>
       <Route exact path="/character">
