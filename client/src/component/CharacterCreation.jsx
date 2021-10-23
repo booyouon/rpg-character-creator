@@ -1,5 +1,6 @@
 import Character from "./Character";
 import ColorPallete from "./ColorPallete";
+import { Redirect } from "react-router-dom";
 
 const CharacterCreation = ({
   hairColor,
@@ -21,33 +22,35 @@ const CharacterCreation = ({
     alignItems: "center",
     margin: "20px 0",
   };
-  if (!authenticated) {
-    return null;
-  } else {
-    return (
-      <div style={elStyling}>
-        <Character
-          hairColor={hairColor}
-          skinColor={skinColor}
-          shirtColor={shirtColor}
-          pantsColor={pantsColor}
-          shoeColor={shoeColor}
-        />
-        <ColorPallete
-          hairColor={hairColor}
-          skinColor={skinColor}
-          shirtColor={shirtColor}
-          pantsColor={pantsColor}
-          shoeColor={shoeColor}
-          setHairColor={setHairColor}
-          setSkinColor={setSkinColor}
-          setShirtColor={setShirtColor}
-          setPantsColor={setPantsColor}
-          setShoeColor={setShoeColor}
-        />
-      </div>
-    );
-  }
+  return (
+    <div>
+      {authenticated ? (
+        <div style={elStyling}>
+          <Character
+            hairColor={hairColor}
+            skinColor={skinColor}
+            shirtColor={shirtColor}
+            pantsColor={pantsColor}
+            shoeColor={shoeColor}
+          />
+          <ColorPallete
+            hairColor={hairColor}
+            skinColor={skinColor}
+            shirtColor={shirtColor}
+            pantsColor={pantsColor}
+            shoeColor={shoeColor}
+            setHairColor={setHairColor}
+            setSkinColor={setSkinColor}
+            setShirtColor={setShirtColor}
+            setPantsColor={setPantsColor}
+            setShoeColor={setShoeColor}
+          />
+        </div>
+      ) : (
+        <Redirect to={{ pathname: "/login" }} />
+      )}
+    </div>
+  );
 };
 
 export default CharacterCreation;
