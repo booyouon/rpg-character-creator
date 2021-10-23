@@ -1,9 +1,9 @@
 import "./App.css";
-import Character from "./component/Character";
-import ColorPallete from "./component/ColorPallete";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Login from "./component/Login";
+import CharacterCreation from "./component/CharacterCreation";
+import Welcome from "./component/Welcome";
 
 const API_URL =
   "https://api.airtable.com/v0/apps2LmH1EFxMOZEB/Table%201?api_key=keyU3JZHRhRaUZpsv";
@@ -56,14 +56,8 @@ function App() {
         toggleFetch={toggleFetch}
         setToggleFetch={setToggleFetch}
       />
-      <Character
-        hairColor={hairColor}
-        skinColor={skinColor}
-        shirtColor={shirtColor}
-        pantsColor={pantsColor}
-        shoeColor={shoeColor}
-      />
-      <ColorPallete
+      <Welcome />
+      <CharacterCreation
         hairColor={hairColor}
         skinColor={skinColor}
         shirtColor={shirtColor}
