@@ -1,4 +1,5 @@
 import "./App.css";
+import { Link, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Login from "./component/Login";
@@ -47,6 +48,7 @@ function App() {
 
   return (
     <div className="App">
+      <Welcome />
       <Login
         username={username}
         password={password}
@@ -56,7 +58,6 @@ function App() {
         toggleFetch={toggleFetch}
         setToggleFetch={setToggleFetch}
       />
-      <Welcome />
       <CharacterCreation
         hairColor={hairColor}
         skinColor={skinColor}
@@ -68,6 +69,7 @@ function App() {
         setShirtColor={setShirtColor}
         setPantsColor={setPantsColor}
         setShoeColor={setShoeColor}
+        authenticated={authenticated}
       />
     </div>
   );
