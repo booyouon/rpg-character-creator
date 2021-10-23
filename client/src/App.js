@@ -3,12 +3,17 @@ import Character from "./component/Character";
 import ColorPallete from "./component/ColorPallete";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Login from "./component/Login";
 
 const API_URL =
   "https://api.airtable.com/v0/apps2LmH1EFxMOZEB/Table%201?api_key=keyU3JZHRhRaUZpsv";
-
+//https://api.airtable.com/v0/apps2LmH1EFxMOZEB/Table%201?api_key=keyU3JZHRhRaUZpsv&filterByFormula=({nickname} = 'V')
 function App() {
-  const [userData, setUserData] = useState([]);
+  const [userData, setUserData] = useState(" ");
+  const [authenticated, setAuthenticated] = useState(false);
+  const [toggleFetch, setToggleFetch] = useState(false);
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const [hairColor, setHairColor] = useState("#000000");
   const [skinColor, setSkinColor] = useState("#E8BEAC");
   const [shirtColor, setShirtColor] = useState("#0000FF");
@@ -17,17 +22,40 @@ function App() {
 
   useEffect(() => {
     const getAirData = async () => {
-      const res = await axios.get(API_URL);
+      const res = await axios.get(
+        `${API_URL}&filterByFormula=({username}='${userData}')`
+      );
       console.log(res.data);
       console.log(res.data.records[0]);
-      setUserData(res.data.records[0]);
-      setHairColor(res.data.records[0].fields.haircolor);
+      if (
+        res.data.records[0] &&
+        res.data.records[0].fields.password == password
+      ) {
+        console.log("This user exist");
+        setAuthenticated(true);
+        setHairColor(res.data.records[0].fields.haircolor);
+        setSkinColor(res.data.records[0].fields.skincolor);
+        setShirtColor(res.data.records[0].fields.shirtcolor);
+        setPantsColor(res.data.records[0].fields.pantscolor);
+        setShoeColor(res.data.records[0].fields.shoecolor);
+      } else {
+        console.log("This user does not exist");
+      }
     };
     getAirData();
-  }, []);
+  }, [toggleFetch]);
 
   return (
     <div className="App">
+      <Login
+        username={username}
+        password={password}
+        setUsername={setUsername}
+        setPassword={setPassword}
+        setUserData={setUserData}
+        toggleFetch={toggleFetch}
+        setToggleFetch={setToggleFetch}
+      />
       <Character
         hairColor={hairColor}
         skinColor={skinColor}
