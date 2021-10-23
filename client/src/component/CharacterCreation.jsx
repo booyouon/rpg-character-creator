@@ -14,7 +14,6 @@ const CharacterCreation = ({
   setShoeColor,
   authenticated,
 }) => {
-  console.log(authenticated);
   const elStyling = {
     display: "flex",
     flexDirection: "column",

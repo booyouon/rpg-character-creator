@@ -12,7 +12,6 @@ const ColorPallete = ({
 }) => {
   const handleSubmit = (ev) => {
     ev.preventDefault();
-    console.log("poop");
   };
   return (
     <div>

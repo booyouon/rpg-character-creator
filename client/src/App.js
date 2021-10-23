@@ -5,10 +5,10 @@ import axios from "axios";
 import Login from "./component/Login";
 import CharacterCreation from "./component/CharacterCreation";
 import Welcome from "./component/Welcome";
+import { useHistory } from "react-router-dom";
 
 const API_URL =
   "https://api.airtable.com/v0/apps2LmH1EFxMOZEB/Table%201?api_key=keyU3JZHRhRaUZpsv";
-//https://api.airtable.com/v0/apps2LmH1EFxMOZEB/Table%201?api_key=keyU3JZHRhRaUZpsv&filterByFormula=({nickname} = 'V')
 function App() {
   const [userData, setUserData] = useState(" ");
   const [authenticated, setAuthenticated] = useState(false);
@@ -20,14 +20,13 @@ function App() {
   const [shirtColor, setShirtColor] = useState("#0000FF");
   const [pantsColor, setPantsColor] = useState("#808080");
   const [shoeColor, setShoeColor] = useState("#654321");
+  const history = useHistory();
 
   useEffect(() => {
     const getAirData = async () => {
       const res = await axios.get(
         `${API_URL}&filterByFormula=({username}='${userData}')`
       );
-      console.log(res.data);
-      console.log(res.data.records[0]);
       if (
         res.data.records[0] &&
         res.data.records[0].fields.password == password
@@ -39,6 +38,7 @@ function App() {
         setShirtColor(res.data.records[0].fields.shirtcolor);
         setPantsColor(res.data.records[0].fields.pantscolor);
         setShoeColor(res.data.records[0].fields.shoecolor);
+        history.push("/character");
       } else {
         console.log("Login Failed. Please check your username or password.");
       }
@@ -48,29 +48,35 @@ function App() {
 
   return (
     <div className="App">
-      <Welcome />
-      <Login
-        username={username}
-        password={password}
-        setUsername={setUsername}
-        setPassword={setPassword}
-        setUserData={setUserData}
-        toggleFetch={toggleFetch}
-        setToggleFetch={setToggleFetch}
-      />
-      <CharacterCreation
-        hairColor={hairColor}
-        skinColor={skinColor}
-        shirtColor={shirtColor}
-        pantsColor={pantsColor}
-        shoeColor={shoeColor}
-        setHairColor={setHairColor}
-        setSkinColor={setSkinColor}
-        setShirtColor={setShirtColor}
-        setPantsColor={setPantsColor}
-        setShoeColor={setShoeColor}
-        authenticated={authenticated}
-      />
+      <Route exact path="/">
+        <Welcome />
+      </Route>
+      <Route exact path="/login">
+        <Login
+          username={username}
+          password={password}
+          setUsername={setUsername}
+          setPassword={setPassword}
+          setUserData={setUserData}
+          toggleFetch={toggleFetch}
+          setToggleFetch={setToggleFetch}
+        />
+      </Route>
+      <Route exact path="/character">
+        <CharacterCreation
+          hairColor={hairColor}
+          skinColor={skinColor}
+          shirtColor={shirtColor}
+          pantsColor={pantsColor}
+          shoeColor={shoeColor}
+          setHairColor={setHairColor}
+          setSkinColor={setSkinColor}
+          setShirtColor={setShirtColor}
+          setPantsColor={setPantsColor}
+          setShoeColor={setShoeColor}
+          authenticated={authenticated}
+        />
+      </Route>
     </div>
   );
 }

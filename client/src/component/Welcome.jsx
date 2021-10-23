@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Welcome = ({}) => {
   const elStyling = {
     display: "flex",
@@ -8,7 +10,9 @@ const Welcome = ({}) => {
   };
   return (
     <div style={elStyling}>
-      <button>Start Game</button>
+      <Link to="/login">
+        <button>Start Game</button>
+      </Link>
     </div>
   );
 };

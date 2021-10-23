@@ -15,16 +15,15 @@ const Login = ({
     margin: "20px 0",
   };
 
-  const handleSubmit = (ev) => {
+  const handleLogin = (ev) => {
     ev.preventDefault();
-    console.log(username.toLowerCase());
     // username isn't case sensitive when submitted so I used a toLowerCase method in order to avoid case sensitivtiy
     setUserData(username.toLowerCase());
     setToggleFetch(!toggleFetch);
   };
   return (
     <div style={elStyling}>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleLogin}>
         <label htmlFor="username">Username</label>
         <input
           value={username}
