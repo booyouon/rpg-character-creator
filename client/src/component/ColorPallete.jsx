@@ -1,3 +1,6 @@
+import { Link } from "react-router-dom";
+import axios from "axios";
+
 const ColorPallete = ({
   hairColor,
   skinColor,
@@ -61,6 +64,9 @@ const ColorPallete = ({
           onChange={(ev) => setShoeColor(ev.target.value)}
         ></input>
         <input type="submit" value="Save"></input>
+        <Link to="/start">
+          <button>Home</button>
+        </Link>
       </form>
     </div>
   );

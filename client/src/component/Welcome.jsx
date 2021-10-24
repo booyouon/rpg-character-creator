@@ -11,7 +11,7 @@ const Welcome = ({}) => {
   return (
     <div style={elStyling}>
       <Link to="/login">
-        <button>Start Game</button>
+        <button>Login</button>
       </Link>
     </div>
   );

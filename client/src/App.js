@@ -3,9 +3,10 @@ import { Link, Route, useHistory } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Auth from "./component/Auth";
-import CharacterCreation from "./component/CharacterCreation";
 import Welcome from "./component/Welcome";
 import CreateUser from "./component/CreateUser";
+import Start from "./component/Start";
+import CharacterCreation from "./component/CharacterCreation";
 
 const API_URL =
   "https://api.airtable.com/v0/apps2LmH1EFxMOZEB/Table%201?api_key=keyU3JZHRhRaUZpsv";
@@ -40,7 +41,7 @@ function App() {
         setShirtColor(res.data.records[0].fields.shirtcolor);
         setPantsColor(res.data.records[0].fields.pantscolor);
         setShoeColor(res.data.records[0].fields.shoecolor);
-        history.push("/character");
+        history.push("/start");
       } else {
         console.log("Login Failed. Please check your username or password.");
       }
@@ -50,7 +51,7 @@ function App() {
 
   return (
     <div className="App">
-      <Link to="/login">poop</Link>
+      <Link to="/start">poop</Link>
       <Route exact path="/">
         <Welcome
           username={username}
@@ -88,6 +89,9 @@ function App() {
           toggleFetch={toggleFetch}
           setToggleFetch={setToggleFetch}
         />
+      </Route>
+      <Route exact path="/start">
+        <Start authenticated={authenticated} />
       </Route>
       <Route exact path="/character">
         <CharacterCreation

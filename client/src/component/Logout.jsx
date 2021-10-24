@@ -1,10 +1,12 @@
 import { useHistory } from "react-router-dom";
+
 const Logout = ({
   setUsername,
   setPassword,
   setUserSearch,
   toggleFetch,
   setToggleFetch,
+  authenticated,
   setAuthenticated,
 }) => {
   const elStyling = {
@@ -15,7 +17,7 @@ const Logout = ({
     margin: "20px 0",
   };
 
-  const history = useHistory("/");
+  const history = useHistory();
 
   const handleLogout = (ev) => {
     ev.preventDefault();

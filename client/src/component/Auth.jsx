@@ -26,18 +26,16 @@ const Auth = ({
           setToggleFetch={setToggleFetch}
         />
       ) : (
-        <Redirect to={{ pathname: "/logout" }} />
-      )}
-      <Link to="/logout">
         <Logout
           setUsername={setUsername}
           setPassword={setPassword}
           setUserSearch={setUserSearch}
           toggleFetch={toggleFetch}
           setToggleFetch={setToggleFetch}
+          authenticated={authenticated}
           setAuthenticated={setAuthenticated}
         />
-      </Link>
+      )}
     </div>
   );
 };
