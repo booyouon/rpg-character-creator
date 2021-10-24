@@ -1,16 +1,17 @@
 import "./App.css";
-import { Link, Route } from "react-router-dom";
+import { Link, Route, useHistory } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Auth from "./component/Auth";
 import CharacterCreation from "./component/CharacterCreation";
 import Welcome from "./component/Welcome";
-import { useHistory } from "react-router-dom";
+import CreateUser from "./component/CreateUser";
 
 const API_URL =
   "https://api.airtable.com/v0/apps2LmH1EFxMOZEB/Table%201?api_key=keyU3JZHRhRaUZpsv";
 function App() {
-  const [userData, setUserData] = useState(" ");
+  const [userData, setUserData] = useState([]);
+  const [userSearch, setUserSearch] = useState(" ");
   const [authenticated, setAuthenticated] = useState(false);
   const [toggleFetch, setToggleFetch] = useState(false);
   const [username, setUsername] = useState("");
@@ -25,14 +26,15 @@ function App() {
   useEffect(() => {
     const getAirData = async () => {
       const res = await axios.get(
-        `${API_URL}&filterByFormula=({username}='${userData}')`
+        `${API_URL}&filterByFormula=({username}='${userSearch}')`
       );
       if (
         res.data.records[0] &&
-        res.data.records[0].fields.password == password
+        res.data.records[0].fields.password === password
       ) {
         console.log("Login Successful");
         setAuthenticated(true);
+        setUserData(res.data.records[0]);
         setHairColor(res.data.records[0].fields.haircolor);
         setSkinColor(res.data.records[0].fields.skincolor);
         setShirtColor(res.data.records[0].fields.shirtcolor);
@@ -55,7 +57,7 @@ function App() {
           password={password}
           setUsername={setUsername}
           setPassword={setPassword}
-          setUserData={setUserData}
+          setUserSearch={setUserSearch}
           toggleFetch={toggleFetch}
           setToggleFetch={setToggleFetch}
           authenticated={authenticated}
@@ -67,11 +69,20 @@ function App() {
           password={password}
           setUsername={setUsername}
           setPassword={setPassword}
-          setUserData={setUserData}
+          setUserSearch={setUserSearch}
           toggleFetch={toggleFetch}
           setToggleFetch={setToggleFetch}
           authenticated={authenticated}
           setAuthenticated={setAuthenticated}
+        />
+      </Route>
+      <Route exact path="/newuser">
+        <CreateUser
+          username={username}
+          password={password}
+          setUsername={setUsername}
+          setPassword={setPassword}
+          authenticated={authenticated}
         />
       </Route>
       <Route exact path="/character">

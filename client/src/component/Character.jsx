@@ -4,6 +4,7 @@ const Character = ({
   shirtColor,
   pantsColor,
   shoeColor,
+  nickname,
 }) => {
   const elStyling = {
     display: "flex",
@@ -14,6 +15,7 @@ const Character = ({
   };
   return (
     <div style={elStyling}>
+      <h2>{nickname}</h2>
       <div
         style={{ backgroundColor: hairColor, width: "50px", height: "50px" }}
       ></div>

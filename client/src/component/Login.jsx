@@ -3,7 +3,7 @@ const Login = ({
   password,
   setUsername,
   setPassword,
-  setUserData,
+  setUserSearch,
   toggleFetch,
   setToggleFetch,
 }) => {
@@ -18,7 +18,7 @@ const Login = ({
   const handleLogin = (ev) => {
     ev.preventDefault();
     // username isn't case sensitive when submitted so I used a toLowerCase method in order to avoid case sensitivtiy
-    setUserData(username.toLowerCase());
+    setUserSearch(username.toLowerCase());
     setToggleFetch(!toggleFetch);
   };
   return (
@@ -40,7 +40,7 @@ const Login = ({
           type="password"
           onChange={(ev) => setPassword(ev.target.value)}
         ></input>
-        <input type="submit" />
+        <input type="submit" value="Log in" />
       </form>
     </div>
   );

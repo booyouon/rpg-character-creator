@@ -2,7 +2,7 @@ import { useHistory } from "react-router-dom";
 const Logout = ({
   setUsername,
   setPassword,
-  setUserData,
+  setUserSearch,
   toggleFetch,
   setToggleFetch,
   setAuthenticated,
@@ -20,7 +20,7 @@ const Logout = ({
   const handleLogout = (ev) => {
     ev.preventDefault();
     // username isn't case sensitive when submitted so I used a toLowerCase method in order to avoid case sensitivtiy
-    setUserData(" ");
+    setUserSearch(" ");
     setPassword("");
     setUsername("");
     setAuthenticated(false);
