@@ -24,7 +24,7 @@ function App() {
   const history = useHistory();
 
   useEffect(() => {
-    const getAirData = async () => {
+    const getUserData = async () => {
       const res = await axios.get(
         `${API_URL}&filterByFormula=({username}='${userSearch}')`
       );
@@ -45,7 +45,7 @@ function App() {
         console.log("Login Failed. Please check your username or password.");
       }
     };
-    getAirData();
+    getUserData();
   }, [toggleFetch]);
 
   return (
@@ -83,6 +83,10 @@ function App() {
           setUsername={setUsername}
           setPassword={setPassword}
           authenticated={authenticated}
+          API_URL={API_URL}
+          setUserSearch={setUserSearch}
+          toggleFetch={toggleFetch}
+          setToggleFetch={setToggleFetch}
         />
       </Route>
       <Route exact path="/character">
