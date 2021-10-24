@@ -17,6 +17,7 @@ function App() {
   const [toggleFetch, setToggleFetch] = useState(false);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [nickname, setNickname] = useState("");
   const [hairColor, setHairColor] = useState("#000000");
   const [skinColor, setSkinColor] = useState("#E8BEAC");
   const [shirtColor, setShirtColor] = useState("#0000FF");
@@ -29,6 +30,7 @@ function App() {
       const res = await axios.get(
         `${API_URL}&filterByFormula=({username}='${userSearch}')`
       );
+      console.log(res.data.records[0]);
       if (
         res.data.records[0] &&
         res.data.records[0].fields.password === password
@@ -36,6 +38,7 @@ function App() {
         console.log("Login Successful");
         setAuthenticated(true);
         setUserData(res.data.records[0]);
+        setHairColor(res.data.records[0].fields.nickname);
         setHairColor(res.data.records[0].fields.haircolor);
         setSkinColor(res.data.records[0].fields.skincolor);
         setShirtColor(res.data.records[0].fields.shirtcolor);
@@ -53,16 +56,7 @@ function App() {
     <div className="App">
       <Link to="/start">poop</Link>
       <Route exact path="/">
-        <Welcome
-          username={username}
-          password={password}
-          setUsername={setUsername}
-          setPassword={setPassword}
-          setUserSearch={setUserSearch}
-          toggleFetch={toggleFetch}
-          setToggleFetch={setToggleFetch}
-          authenticated={authenticated}
-        />
+        <Welcome authenticated={authenticated} />
       </Route>
       <Route exact path="/login">
         <Auth
@@ -95,6 +89,8 @@ function App() {
       </Route>
       <Route exact path="/character">
         <CharacterCreation
+          id={userData.id}
+          API_URL={API_URL}
           hairColor={hairColor}
           skinColor={skinColor}
           shirtColor={shirtColor}
@@ -106,6 +102,9 @@ function App() {
           setPantsColor={setPantsColor}
           setShoeColor={setShoeColor}
           authenticated={authenticated}
+          username={username}
+          password={password}
+          nickname={nickname}
         />
       </Route>
     </div>

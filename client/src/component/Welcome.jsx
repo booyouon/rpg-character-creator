@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
-const Welcome = ({}) => {
+const Welcome = ({ authenticated }) => {
   const elStyling = {
     display: "flex",
     flexDirection: "column",
@@ -10,9 +10,13 @@ const Welcome = ({}) => {
   };
   return (
     <div style={elStyling}>
-      <Link to="/login">
-        <button>Login</button>
-      </Link>
+      {authenticated ? (
+        <Redirect to={{ pathname: "/start" }} />
+      ) : (
+        <Link to="/login">
+          <button>Login</button>
+        </Link>
+      )}
     </div>
   );
 };

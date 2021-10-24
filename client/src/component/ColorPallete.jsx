@@ -2,19 +2,52 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 const ColorPallete = ({
-  hairColor,
-  skinColor,
-  shirtColor,
-  pantsColor,
-  shoeColor,
+  id,
   setHairColor,
   setSkinColor,
   setShirtColor,
   setPantsColor,
   setShoeColor,
+  API_URL,
+  username,
+  password,
+  nickname,
+  tempHair,
+  tempSkin,
+  tempShirt,
+  tempPants,
+  tempShoe,
+  setTempHair,
+  setTempSkin,
+  setTempShirt,
+  setTempPants,
+  setTempShoe,
 }) => {
-  const handleSubmit = (ev) => {
+  const handleSubmit = async (ev) => {
     ev.preventDefault();
+    setHairColor(tempHair);
+    setSkinColor(tempSkin);
+    setShirtColor(tempShirt);
+    setPantsColor(tempPants);
+    setShoeColor(tempShoe);
+    const editData = {
+      records: [
+        {
+          id: id,
+          fields: {
+            username: username,
+            password: password,
+            nickname: nickname,
+            shirtcolor: tempShirt,
+            pantscolor: tempPants,
+            haircolor: tempHair,
+            skincolor: tempSkin,
+            shoecolor: tempShoe,
+          },
+        },
+      ],
+    };
+    await axios.put(API_URL, editData);
   };
   return (
     <div>
@@ -24,8 +57,8 @@ const ColorPallete = ({
           name="haircolor"
           id="haircolor"
           type="color"
-          value={hairColor}
-          onChange={(ev) => setHairColor(ev.target.value)}
+          value={tempHair}
+          onChange={(ev) => setTempHair(ev.target.value)}
         ></input>
 
         <label htmlFor="skincolor">Skin Color</label>
@@ -33,8 +66,8 @@ const ColorPallete = ({
           name="skincolor"
           id="skincolor"
           type="color"
-          value={skinColor}
-          onChange={(ev) => setSkinColor(ev.target.value)}
+          value={tempSkin}
+          onChange={(ev) => setTempSkin(ev.target.value)}
         ></input>
 
         <label htmlFor="shirtcolor">Shirt Color</label>
@@ -42,8 +75,8 @@ const ColorPallete = ({
           name="shirtcolor"
           id="shirtcolor"
           type="color"
-          value={shirtColor}
-          onChange={(ev) => setShirtColor(ev.target.value)}
+          value={tempShirt}
+          onChange={(ev) => setTempShirt(ev.target.value)}
         ></input>
 
         <label htmlFor="pantscolor">Pants Color</label>
@@ -51,8 +84,8 @@ const ColorPallete = ({
           name="pantscolor"
           id="pantscolor"
           type="color"
-          value={pantsColor}
-          onChange={(ev) => setPantsColor(ev.target.value)}
+          value={tempPants}
+          onChange={(ev) => setTempPants(ev.target.value)}
         ></input>
 
         <label htmlFor="shoecolor">Shoe Color</label>
@@ -60,8 +93,8 @@ const ColorPallete = ({
           name="shoecolor"
           id="shoecolor"
           type="color"
-          value={shoeColor}
-          onChange={(ev) => setShoeColor(ev.target.value)}
+          value={tempShoe}
+          onChange={(ev) => setTempShoe(ev.target.value)}
         ></input>
         <input type="submit" value="Save"></input>
         <Link to="/start">
