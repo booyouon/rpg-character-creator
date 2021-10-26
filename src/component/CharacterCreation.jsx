@@ -5,16 +5,20 @@ import { useState } from "react";
 
 const CharacterCreation = ({
   id,
-  hairColor,
-  skinColor,
-  shirtColor,
-  pantsColor,
-  shoeColor,
-  setHairColor,
-  setSkinColor,
-  setShirtColor,
-  setPantsColor,
-  setShoeColor,
+  capColor,
+  setCapColor,
+  faceColor,
+  setFaceColor,
+  capShading,
+  setCapShading,
+  faceShading,
+  setFaceShading,
+  eyeColor,
+  setEyeColor,
+  cheeksColor,
+  setCheeksColor,
+  dotColor,
+  setDotColor,
   authenticated,
   API_URL,
   username,
@@ -29,11 +33,14 @@ const CharacterCreation = ({
     margin: "20px 0",
   };
 
-  const [tempHair, setTempHair] = useState(hairColor);
-  const [tempSkin, setTempSkin] = useState(skinColor);
-  const [tempShirt, setTempShirt] = useState(shirtColor);
-  const [tempPants, setTempPants] = useState(pantsColor);
-  const [tempShoe, setTempShoe] = useState(shoeColor);
+  const [tempCap, setTempCap] = useState(capColor);
+  const [tempFace, setTempFace] = useState(faceColor);
+  const [tempCapShading, setTempCapShading] = useState(capShading);
+  const [tempFaceShading, setTempFaceShading] = useState(faceShading);
+  const [tempEyeColor, setTempEyeColor] = useState(eyeColor);
+  const [tempEyeColor, setTempEyeColor] = useState(eyeColor);
+  const [tempEyeColor, setTempEyeColor] = useState(eyeColor);
+  const [tempEyeColor, setTempEyeColor] = useState(eyeColor);
 
   return (
     <div>
@@ -49,16 +56,20 @@ const CharacterCreation = ({
           <ColorPallete
             id={id}
             API_URL={API_URL}
-            hairColor={hairColor}
-            skinColor={skinColor}
-            shirtColor={shirtColor}
-            pantsColor={pantsColor}
-            shoeColor={shoeColor}
-            setHairColor={setHairColor}
-            setSkinColor={setSkinColor}
-            setShirtColor={setShirtColor}
-            setPantsColor={setPantsColor}
-            setShoeColor={setShoeColor}
+            capColor={capColor}
+            setCapColor={setCapColor}
+            faceColor={faceColor}
+            setFaceColor={setFaceColor}
+            capShading={capShading}
+            setCapShading={setCapShading}
+            faceShading={faceShading}
+            setFaceShading={setFaceShading}
+            eyeColor={eyeColor}
+            setEyeColor={setEyeColor}
+            cheeksColor={cheeksColor}
+            setCheeksColor={setCheeksColor}
+            dotColor={dotColor}
+            setDotColor={setDotColor}
             username={username}
             password={password}
             nickname={nickname}

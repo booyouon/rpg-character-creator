@@ -7,6 +7,7 @@ import Welcome from "./component/Welcome";
 import CreateUser from "./component/CreateUser";
 import Start from "./component/Start";
 import CharacterCreation from "./component/CharacterCreation";
+import Sprite from "./component/sprite/Sprite";
 
 const API_URL =
   "https://api.airtable.com/v0/apps2LmH1EFxMOZEB/Table%201?api_key=keyU3JZHRhRaUZpsv";
@@ -18,11 +19,13 @@ function App() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [nickname, setNickname] = useState("");
-  const [hairColor, setHairColor] = useState("#000000");
-  const [skinColor, setSkinColor] = useState("#E8BEAC");
-  const [shirtColor, setShirtColor] = useState("#0000FF");
-  const [pantsColor, setPantsColor] = useState("#808080");
-  const [shoeColor, setShoeColor] = useState("#654321");
+  const [capColor, setCapColor] = useState("#ac3232");
+  const [faceColor, setFaceColor] = useState("#eec39f");
+  const [capShading, setCapShading] = useState("#d95763");
+  const [faceShading, setFaceShading] = useState("#d9a066");
+  const [eyeColor, setEyeColor] = useState("#0A0A0A");
+  const [cheeksColor, setCheeksColor] = useState("#FFC0CB");
+  const [dotColor, setDotColor] = useState("#D3D3D3");
   const history = useHistory();
 
   useEffect(() => {
@@ -38,12 +41,14 @@ function App() {
         console.log("Login Successful");
         setAuthenticated(true);
         setUserData(res.data.records[0]);
-        setHairColor(res.data.records[0].fields.nickname);
-        setHairColor(res.data.records[0].fields.haircolor);
-        setSkinColor(res.data.records[0].fields.skincolor);
-        setShirtColor(res.data.records[0].fields.shirtcolor);
-        setPantsColor(res.data.records[0].fields.pantscolor);
-        setShoeColor(res.data.records[0].fields.shoecolor);
+        setCapColor(res.data.records[0].fields.capcolor);
+        setFaceColor(res.data.records[0].fields.facecolor);
+        setCapShading(res.data.records[0].fields.capshading);
+        setFaceShading(res.data.records[0].fields.faceshading);
+        setEyeColor(res.data.records[0].fields.eyecolor);
+        setCheeksColor(res.data.records[0].fields.cheekscolor);
+        setDotColor(res.data.records[0].fields.dotcolor);
+        setNickname(res.data.records[0].fields.nickname);
         history.push("/start");
       } else {
         console.log("Login Failed. Please check your username or password.");
@@ -54,6 +59,7 @@ function App() {
 
   return (
     <div className="App">
+      <Sprite />
       <Link to="/start">poop</Link>
       <Route exact path="/">
         <Welcome authenticated={authenticated} />
@@ -91,16 +97,20 @@ function App() {
         <CharacterCreation
           id={userData.id}
           API_URL={API_URL}
-          hairColor={hairColor}
-          skinColor={skinColor}
-          shirtColor={shirtColor}
-          pantsColor={pantsColor}
-          shoeColor={shoeColor}
-          setHairColor={setHairColor}
-          setSkinColor={setSkinColor}
-          setShirtColor={setShirtColor}
-          setPantsColor={setPantsColor}
-          setShoeColor={setShoeColor}
+          capColor={capColor}
+          setCapColor={setCapColor}
+          faceColor={faceColor}
+          setFaceColor={setFaceColor}
+          capShading={capShading}
+          setCapShading={setCapShading}
+          faceShading={faceShading}
+          setFaceShading={setFaceShading}
+          eyeColor={eyeColor}
+          setEyeColor={setEyeColor}
+          cheeksColor={cheeksColor}
+          setCheeksColor={setCheeksColor}
+          dotColor={dotColor}
+          setDotColor={setDotColor}
           authenticated={authenticated}
           username={username}
           password={password}
