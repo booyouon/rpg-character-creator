@@ -59,7 +59,6 @@ function App() {
 
   return (
     <div className="App">
-      <Sprite />
       <Link to="/start">poop</Link>
       <Route exact path="/">
         <Welcome authenticated={authenticated} />

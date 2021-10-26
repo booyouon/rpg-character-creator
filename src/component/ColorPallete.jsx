@@ -3,33 +3,44 @@ import axios from "axios";
 
 const ColorPallete = ({
   id,
-  setHairColor,
-  setSkinColor,
-  setShirtColor,
-  setPantsColor,
-  setShoeColor,
   API_URL,
   username,
   password,
   nickname,
-  tempHair,
-  tempSkin,
-  tempShirt,
-  tempPants,
-  tempShoe,
-  setTempHair,
-  setTempSkin,
-  setTempShirt,
-  setTempPants,
-  setTempShoe,
+
+  setCapColor,
+  setFaceColor,
+  setCapShading,
+  setFaceShading,
+  setEyeColor,
+  setCheeksColor,
+  setDotColor,
+
+  tempCap,
+  tempFace,
+  tempCapShading,
+  tempFaceShading,
+  tempEye,
+  tempCheeks,
+  tempDot,
+  setTempCap,
+  setTempFace,
+  setTempCapShading,
+  setTempFaceShading,
+  setTempEye,
+  setTempCheeks,
+  setTempDot,
 }) => {
   const handleSubmit = async (ev) => {
     ev.preventDefault();
-    setHairColor(tempHair);
-    setSkinColor(tempSkin);
-    setShirtColor(tempShirt);
-    setPantsColor(tempPants);
-    setShoeColor(tempShoe);
+
+    setCapColor(tempCap);
+    setFaceColor(tempFace);
+    setCapShading(tempCapShading);
+    setFaceShading(tempFaceShading);
+    setEyeColor(tempEye);
+    setCheeksColor(tempCheeks);
+    setDotColor(tempDot);
     const editData = {
       records: [
         {
@@ -38,11 +49,13 @@ const ColorPallete = ({
             username: username,
             password: password,
             nickname: nickname,
-            shirtcolor: tempShirt,
-            pantscolor: tempPants,
-            haircolor: tempHair,
-            skincolor: tempSkin,
-            shoecolor: tempShoe,
+            capcolor: tempCap,
+            facecolor: tempFace,
+            capshading: tempCapShading,
+            faceshading: tempFaceShading,
+            eyecolor: tempEye,
+            cheekscolor: tempCheeks,
+            dotcolor: tempDot,
           },
         },
       ],
@@ -52,51 +65,71 @@ const ColorPallete = ({
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="haircolor">Hair Color</label>
+        <label htmlFor="capcolor">Cap Color</label>
         <input
-          name="haircolor"
-          id="haircolor"
+          name="capcolor"
+          id="capcolor"
           type="color"
-          value={tempHair}
-          onChange={(ev) => setTempHair(ev.target.value)}
+          value={tempCap}
+          onChange={(ev) => setTempCap(ev.target.value)}
         ></input>
 
-        <label htmlFor="skincolor">Skin Color</label>
+        <label htmlFor="capshading">Cap Shading</label>
         <input
-          name="skincolor"
-          id="skincolor"
+          name="capshading"
+          id="capshading"
           type="color"
-          value={tempSkin}
-          onChange={(ev) => setTempSkin(ev.target.value)}
+          value={tempCapShading}
+          onChange={(ev) => setTempCapShading(ev.target.value)}
         ></input>
 
-        <label htmlFor="shirtcolor">Shirt Color</label>
+        <label htmlFor="dotcolor">Dots Color</label>
         <input
-          name="shirtcolor"
-          id="shirtcolor"
+          name="dotcolor"
+          id="dotcolor"
           type="color"
-          value={tempShirt}
-          onChange={(ev) => setTempShirt(ev.target.value)}
+          value={tempDot}
+          onChange={(ev) => setTempDot(ev.target.value)}
         ></input>
 
-        <label htmlFor="pantscolor">Pants Color</label>
+        <label htmlFor="facecolor">Face Color</label>
         <input
-          name="pantscolor"
-          id="pantscolor"
+          name="facecolor"
+          id="facecolor"
           type="color"
-          value={tempPants}
-          onChange={(ev) => setTempPants(ev.target.value)}
+          value={tempFace}
+          onChange={(ev) => setTempFace(ev.target.value)}
         ></input>
 
-        <label htmlFor="shoecolor">Shoe Color</label>
+        <label htmlFor="faceshading">Face Shading</label>
         <input
-          name="shoecolor"
-          id="shoecolor"
+          name="faceshading"
+          id="faceshading"
           type="color"
-          value={tempShoe}
-          onChange={(ev) => setTempShoe(ev.target.value)}
+          value={tempFaceShading}
+          onChange={(ev) => setTempFaceShading(ev.target.value)}
         ></input>
+
+        <label htmlFor="eyecolor">Eye Color</label>
+        <input
+          name="eyecolor"
+          id="eyecolor"
+          type="color"
+          value={tempEye}
+          onChange={(ev) => setTempEye(ev.target.value)}
+        ></input>
+
+        <label htmlFor="cheekscolor">Cheeks Color</label>
+        <input
+          name="cheekscolor"
+          id="cheekscolor"
+          type="color"
+          value={tempCheeks}
+          onChange={(ev) => setTempCheeks(ev.target.value)}
+        ></input>
+
         <input type="submit" value="Save"></input>
+
         <Link to="/start">
           <button>Home</button>
         </Link>

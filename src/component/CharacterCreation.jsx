@@ -37,21 +37,23 @@ const CharacterCreation = ({
   const [tempFace, setTempFace] = useState(faceColor);
   const [tempCapShading, setTempCapShading] = useState(capShading);
   const [tempFaceShading, setTempFaceShading] = useState(faceShading);
-  const [tempEyeColor, setTempEyeColor] = useState(eyeColor);
-  const [tempEyeColor, setTempEyeColor] = useState(eyeColor);
-  const [tempEyeColor, setTempEyeColor] = useState(eyeColor);
-  const [tempEyeColor, setTempEyeColor] = useState(eyeColor);
+  const [tempEye, setTempEye] = useState(eyeColor);
+  const [tempCheeks, setTempCheeks] = useState(cheeksColor);
+  const [tempDot, setTempDot] = useState(dotColor);
 
   return (
     <div>
       {authenticated ? (
         <div style={elStyling}>
           <Character
-            hairColor={tempHair}
-            skinColor={tempSkin}
-            shirtColor={tempShirt}
-            pantsColor={tempPants}
-            shoeColor={tempShoe}
+            capColor={tempCap}
+            faceColor={tempFace}
+            capShading={tempCapShading}
+            faceShading={tempFaceShading}
+            eyeColor={tempEye}
+            cheeksColor={tempCheeks}
+            dotColor={tempDot}
+            nickname={nickname}
           />
           <ColorPallete
             id={id}
@@ -73,16 +75,20 @@ const CharacterCreation = ({
             username={username}
             password={password}
             nickname={nickname}
-            tempHair={tempHair}
-            tempSkin={tempSkin}
-            tempShirt={tempShirt}
-            tempPants={tempPants}
-            tempShoe={tempShoe}
-            setTempHair={setTempHair}
-            setTempSkin={setTempSkin}
-            setTempShirt={setTempShirt}
-            setTempPants={setTempPants}
-            setTempShoe={setTempShoe}
+            tempCap={tempCap}
+            tempFace={tempFace}
+            tempCapShading={tempCapShading}
+            tempFaceShading={tempFaceShading}
+            tempEye={tempEye}
+            tempCheeks={tempCheeks}
+            tempDot={tempDot}
+            setTempCap={setTempCap}
+            setTempFace={setTempFace}
+            setTempCapShading={setTempCapShading}
+            setTempFaceShading={setTempFaceShading}
+            setTempEye={setTempEye}
+            setTempCheeks={setTempCheeks}
+            setTempDot={setTempDot}
           />
         </div>
       ) : (
