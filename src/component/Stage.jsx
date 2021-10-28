@@ -42,9 +42,9 @@ const Stage = ({
 
   const triggerJump = (ev) => {
     if (
-      (!jump && ev.keyCode == "32") ||
-      ev.keyCode == "38" ||
-      ev.keyCode == "87"
+      (!jump && ev.keyCode === "32") ||
+      ev.keyCode === "38" ||
+      ev.keyCode === "87"
     ) {
       setJump(true);
       setTimeout(() => setJump(false), 500);

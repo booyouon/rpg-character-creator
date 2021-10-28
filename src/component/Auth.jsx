@@ -1,6 +1,5 @@
 import Logout from "./Logout";
 import Login from "./Login";
-import { Link, Route, Redirect } from "react-router-dom";
 
 const Auth = ({
   username,
