@@ -13,10 +13,11 @@ const Stage = ({
   const stageStyling = {
     padding: 0,
     margin: 0,
-    width: "100%",
-    height: "200px",
+    width: "400px",
+    height: "300px",
     backgroundColor: "white",
     border: "1px solid black",
+    margin: "0 auto",
   };
   const spriteStyling = {
     width: "50px",

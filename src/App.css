@@ -1,6 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=VT323&display=swap");
 
 .App {
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; */
   text-align: center;
 }
 

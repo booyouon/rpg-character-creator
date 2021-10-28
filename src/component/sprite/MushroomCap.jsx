@@ -1,6 +1,6 @@
 const MushroomCap = ({ capColor, capShading, dotColor }) => {
   return (
-    <div style={{ padding: "0", margin: "0" }}>
+    <div style={{ padding: "0", margin: "0px" }}>
       {/* mushroom cap */}
       <svg
         style={{ padding: "0", margin: "0" }}

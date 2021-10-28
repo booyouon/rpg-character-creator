@@ -82,7 +82,7 @@ function App() {
           <h1 className="title">MushVroom</h1>
         </Link>
 
-        {/* <Stage
+        <Stage
           capColor={capColor}
           faceColor={faceColor}
           capShading={capShading}
@@ -91,7 +91,8 @@ function App() {
           cheeksColor={cheeksColor}
           dotColor={dotColor}
           nickname={nickname}
-        /> */}
+        />
+
         <Route exact path="/">
           <Auth
             username={username}
