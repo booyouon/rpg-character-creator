@@ -18,6 +18,9 @@ const Login = ({
     alignItems: "center",
     margin: "20px 0",
   };
+  const buttonStyle = {
+    width: "200px",
+  };
 
   const handleLogin = (ev) => {
     ev.preventDefault();
@@ -54,8 +57,17 @@ const Login = ({
           onChange={(ev) => setPassword(ev.target.value)}
           required
         ></TextField>
-        <Button variant="contained" type="submit" color="success">
+        <Button
+          style={buttonStyle}
+          variant="contained"
+          type="submit"
+          color="secondary"
+        >
           Log in
+        </Button>
+        <hr />
+        <Button style={buttonStyle} variant="contained" color="success">
+          Create New Account
         </Button>
       </Box>
     </div>
