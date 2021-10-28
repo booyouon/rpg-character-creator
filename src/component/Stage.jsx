@@ -24,7 +24,7 @@ const Stage = ({
     margin: "0",
     padding: "0",
     position: "relative",
-    top: "230px",
+    top: "220px",
   };
 
   const obstacleStyling = {
@@ -32,7 +32,7 @@ const Stage = ({
     height: "20px",
     backgroundColor: "red",
     position: "relative",
-    top: "200px",
+    top: "190px",
     left: "400px",
     animation: "obstacle 1.1s infinite linear",
   };
@@ -47,18 +47,24 @@ const Stage = ({
     }
   };
 
+  const vanishingThings = {
+    width: "50px",
+    height: "300px",
+    backgroundColor: "white",
+    zIndex: "1",
+  };
+
   return (
-    <div style={{ display: "flex" }}>
-      <div
-        style={{
-          width: "50px",
-          height: "300px",
-          backgroundColor: "white",
-          position: "relative",
-          left: "3px",
-          zIndex: "1",
-        }}
-      ></div>
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        margin: "0 auto",
+        width: "500px",
+      }}
+    >
+      <div style={vanishingThings}></div>
 
       <div style={stageStyling} onKeyUp={triggerJump} tabIndex="0">
         <div>score</div>
@@ -75,16 +81,7 @@ const Stage = ({
         />
         <div className="obstacle" style={obstacleStyling}></div>
       </div>
-      <div
-        style={{
-          width: "50px",
-          height: "300px",
-          backgroundColor: "white",
-          position: "relative",
-          left: "-3px",
-          zIndex: "1",
-        }}
-      ></div>
+      <div style={vanishingThings}></div>
     </div>
   );
 };
