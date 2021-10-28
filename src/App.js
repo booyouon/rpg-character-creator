@@ -55,7 +55,7 @@ function App() {
       }
     };
     getUserData();
-  }, [toggleFetch]);
+  }, [toggleFetch, password, history, userSearch]);
 
   // custom MUI color palette
   const theme = createTheme({
