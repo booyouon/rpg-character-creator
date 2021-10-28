@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { createTheme, ThemeProvider } from "@mui/material";
 import Auth from "./component/Auth";
-import Welcome from "./component/Welcome";
 import CreateUser from "./component/CreateUser";
 import Start from "./component/Start";
 import CharacterCreation from "./component/CharacterCreation";
@@ -93,9 +92,6 @@ function App() {
           dotColor={dotColor}
           nickname={nickname}
         /> */}
-        {/* <Route exact path="/">
-          <Welcome authenticated={authenticated} />
-        </Route> */}
         <Route exact path="/">
           <Auth
             username={username}
