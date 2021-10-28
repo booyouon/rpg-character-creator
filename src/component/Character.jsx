@@ -11,8 +11,8 @@ const Character = ({
 }) => {
   console.log(capShading);
   const elStyling = {
-    width: "50%",
-    height: "50%",
+    width: "25%",
+    height: "25%",
   };
   return (
     <div style={elStyling}>

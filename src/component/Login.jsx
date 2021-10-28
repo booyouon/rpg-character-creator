@@ -54,7 +54,7 @@ const Login = ({
           onChange={(ev) => setPassword(ev.target.value)}
           required
         ></TextField>
-        <Button variant="contained" type="submit" color="secondary">
+        <Button variant="contained" type="submit" color="success">
           Log in
         </Button>
       </Box>
