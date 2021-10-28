@@ -13,6 +13,7 @@ const Stage = ({
   nickname,
 }) => {
   const [jump, setJump] = useState(false);
+  const [score, setScore] = useState(0);
   const stageStyling = {
     padding: 0,
     width: "400px",
@@ -36,19 +37,22 @@ const Stage = ({
     position: "relative",
     top: "200px",
     left: "400px",
-    animation: "obstacle 1.2s infinite linear",
+    animation: "obstacle 1.1s infinite linear",
   };
 
   const triggerJump = (ev) => {
-    if (ev.keyCode == "32" || ev.keyCode == "38" || ev.keyCode == "87") {
+    if (
+      (!jump && ev.keyCode == "32") ||
+      ev.keyCode == "38" ||
+      ev.keyCode == "87"
+    ) {
       setJump(true);
       setTimeout(() => setJump(false), 500);
     }
   };
 
-  useEffect(() => {
-    console.log("poop");
-  }, []);
+  setInterval(() => setScore(score + 1), 500);
+
   return (
     <div style={{ display: "flex" }}>
       <div
@@ -61,7 +65,9 @@ const Stage = ({
           zIndex: "1",
         }}
       ></div>
+
       <div style={stageStyling} onKeyUp={triggerJump} tabIndex="0">
+        <div>{score}</div>
         <Sprite
           className={jump ? "jump" : null}
           style={spriteStyling}
