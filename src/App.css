@@ -9,3 +9,11 @@ html,
 * {
   font-family: "VT323", monospace !important;
 }
+
+.title {
+  color: #af52bf;
+}
+
+.title:hover {
+  opacity: 0.7;
+}

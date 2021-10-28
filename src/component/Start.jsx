@@ -22,7 +22,7 @@ const Start = ({
     textDecoration: "none",
   };
   const buttonStyle = {
-    width: "200px",
+    width: "300px",
   };
   return (
     <div style={elStyling}>
@@ -48,7 +48,7 @@ const Start = ({
           />
         </div>
       ) : (
-        <Redirect to={{ pathname: "/login" }} />
+        <Redirect to={{ pathname: "/" }} />
       )}
     </div>
   );

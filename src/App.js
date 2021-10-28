@@ -79,7 +79,9 @@ function App() {
   return (
     <div className="App">
       <ThemeProvider theme={theme}>
-        <Link to="/start">Poop</Link>
+        <Link to="/start" style={{ textDecoration: "none" }}>
+          <h1 className="title">MushVroom</h1>
+        </Link>
 
         {/* <Stage
           capColor={capColor}

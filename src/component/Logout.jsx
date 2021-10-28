@@ -21,7 +21,7 @@ const Logout = ({
     history.push("/");
   };
   const buttonStyle = {
-    width: "200px",
+    width: "300px",
   };
   return (
     <div>
