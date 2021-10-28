@@ -1,4 +1,5 @@
 import { Button } from "@mui/material";
+
 const Login = ({
   username,
   password,
@@ -41,7 +42,9 @@ const Login = ({
           type="password"
           onChange={(ev) => setPassword(ev.target.value)}
         ></input>
-        <Button type="submit">Log in</Button>
+        <Button variant="contained" type="submit" color="secondary">
+          Log in
+        </Button>
       </form>
     </div>
   );

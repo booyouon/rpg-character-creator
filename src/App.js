@@ -2,12 +2,14 @@ import "./App.css";
 import { Link, Route, useHistory } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { createTheme, ThemeProvider } from "@mui/material";
 import Auth from "./component/Auth";
 import Welcome from "./component/Welcome";
 import CreateUser from "./component/CreateUser";
 import Start from "./component/Start";
 import CharacterCreation from "./component/CharacterCreation";
 import Stage from "./component/Stage";
+
 const API_URL =
   "https://api.airtable.com/v0/apps2LmH1EFxMOZEB/Table%201?api_key=keyU3JZHRhRaUZpsv";
 function App() {
@@ -56,75 +58,95 @@ function App() {
     getUserData();
   }, [toggleFetch]);
 
+  // custom MUI color palette
+  const theme = createTheme({
+    palette: {
+      primary: {
+        light: "#af52bf",
+        main: "#9c27b0",
+        dark: "#6d1b7b",
+        contrastText: "#fff",
+      },
+      secondary: {
+        light: "#33eb91",
+        main: "#00e676",
+        dark: "#00a152",
+        contrastText: "#000",
+      },
+    },
+  });
+
   return (
     <div className="App">
-      <Link to="/start">poop</Link>
-      <Stage
-        capColor={capColor}
-        faceColor={faceColor}
-        capShading={capShading}
-        faceShading={faceShading}
-        eyeColor={eyeColor}
-        cheeksColor={cheeksColor}
-        dotColor={dotColor}
-        nickname={nickname}
-      />
-      <Route exact path="/">
-        <Welcome authenticated={authenticated} />
-      </Route>
-      <Route exact path="/login">
-        <Auth
-          username={username}
-          password={password}
-          setUsername={setUsername}
-          setPassword={setPassword}
-          setUserSearch={setUserSearch}
-          toggleFetch={toggleFetch}
-          setToggleFetch={setToggleFetch}
-          authenticated={authenticated}
-          setAuthenticated={setAuthenticated}
-        />
-      </Route>
-      <Route exact path="/newuser">
-        <CreateUser
-          username={username}
-          password={password}
-          setUsername={setUsername}
-          setPassword={setPassword}
-          authenticated={authenticated}
-          API_URL={API_URL}
-          setUserSearch={setUserSearch}
-          toggleFetch={toggleFetch}
-          setToggleFetch={setToggleFetch}
-        />
-      </Route>
-      <Route exact path="/start">
-        <Start authenticated={authenticated} />
-      </Route>
-      <Route exact path="/character">
-        <CharacterCreation
-          id={userData.id}
-          API_URL={API_URL}
+      <ThemeProvider theme={theme}>
+        <Link to="/start">poop</Link>
+        <Stage
           capColor={capColor}
-          setCapColor={setCapColor}
           faceColor={faceColor}
-          setFaceColor={setFaceColor}
           capShading={capShading}
-          setCapShading={setCapShading}
           faceShading={faceShading}
-          setFaceShading={setFaceShading}
           eyeColor={eyeColor}
-          setEyeColor={setEyeColor}
           cheeksColor={cheeksColor}
-          setCheeksColor={setCheeksColor}
           dotColor={dotColor}
-          setDotColor={setDotColor}
-          authenticated={authenticated}
-          username={username}
-          password={password}
           nickname={nickname}
         />
-      </Route>
+        <Route exact path="/">
+          <Welcome authenticated={authenticated} />
+        </Route>
+        <Route exact path="/login">
+          <Auth
+            username={username}
+            password={password}
+            setUsername={setUsername}
+            setPassword={setPassword}
+            setUserSearch={setUserSearch}
+            toggleFetch={toggleFetch}
+            setToggleFetch={setToggleFetch}
+            authenticated={authenticated}
+            setAuthenticated={setAuthenticated}
+          />
+        </Route>
+        <Route exact path="/newuser">
+          <CreateUser
+            username={username}
+            password={password}
+            setUsername={setUsername}
+            setPassword={setPassword}
+            authenticated={authenticated}
+            API_URL={API_URL}
+            setUserSearch={setUserSearch}
+            toggleFetch={toggleFetch}
+            setToggleFetch={setToggleFetch}
+          />
+        </Route>
+        <Route exact path="/start">
+          <Start authenticated={authenticated} nickname={nickname} />
+        </Route>
+        <Route exact path="/character">
+          <CharacterCreation
+            id={userData.id}
+            API_URL={API_URL}
+            capColor={capColor}
+            setCapColor={setCapColor}
+            faceColor={faceColor}
+            setFaceColor={setFaceColor}
+            capShading={capShading}
+            setCapShading={setCapShading}
+            faceShading={faceShading}
+            setFaceShading={setFaceShading}
+            eyeColor={eyeColor}
+            setEyeColor={setEyeColor}
+            cheeksColor={cheeksColor}
+            setCheeksColor={setCheeksColor}
+            dotColor={dotColor}
+            setDotColor={setDotColor}
+            authenticated={authenticated}
+            username={username}
+            password={password}
+            nickname={nickname}
+          />
+        </Route>
+      </ThemeProvider>
     </div>
   );
 }
