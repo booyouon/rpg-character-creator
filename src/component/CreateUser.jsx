@@ -1,6 +1,9 @@
 import { Redirect } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
+import { Button } from "@mui/material";
+import { TextField } from "@mui/material";
+import { Box } from "@mui/system";
 
 const CreateUser = ({
   username,
@@ -50,40 +53,57 @@ const CreateUser = ({
   return (
     <div>
       {!authenticated ? (
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="username">Username</label>
-          <input
-            value={username}
-            name="username"
-            id="username"
-            type="text"
-            onChange={(ev) => setUsername(ev.target.value.trim())}
-          ></input>
-          <label htmlFor="nickname">Nickname</label>
-          <input
-            value={nickname}
-            name="nickname"
-            id="nickname"
-            type="text"
-            onChange={(ev) => setNickname(ev.target.value.trim())}
-          ></input>
-          <label htmlFor="password">Password</label>
-          <input
-            value={password}
-            name="password"
-            id="password"
-            type="password"
-            onChange={(ev) => setPassword(ev.target.value.trim())}
-          ></input>
-          <label htmlFor="confirmPassword">Confirm Password</label>
-          <input
-            value={confirmPassword}
-            name="confirmPassword"
-            id="confirmPassword"
-            type="password"
-            onChange={(ev) => setConfirmPassword(ev.target.value.trim())}
-          ></input>
-          <input
+        <Box
+          component="form"
+          sx={{
+            "& .MuiTextField-root": { m: 1, width: "50vw", minWidth: "250px" },
+          }}
+          noValidate
+          onSubmit={handleSubmit}
+          autoComplete="off"
+          autoSave="off"
+        >
+          <div>
+            <TextField
+              value={username}
+              name="username"
+              id="username"
+              type="text"
+              onChange={(ev) => setUsername(ev.target.value.trim())}
+              label="Username"
+              required
+            ></TextField>
+            <TextField
+              value={nickname}
+              name="nickname"
+              id="nickname"
+              type="text"
+              onChange={(ev) => setNickname(ev.target.value.trim())}
+              label="Nickname"
+              required
+            ></TextField>
+            <TextField
+              value={password}
+              name="password"
+              id="password"
+              type="password"
+              onChange={(ev) => setPassword(ev.target.value.trim())}
+              label="Password"
+              required
+            ></TextField>
+            <TextField
+              value={confirmPassword}
+              name="confirmPassword"
+              id="confirmPassword"
+              type="password"
+              onChange={(ev) => setConfirmPassword(ev.target.value.trim())}
+              label="Confirm Password"
+              required
+            ></TextField>
+          </div>
+          <Button
+            variant="outlined"
+            color="secondary"
             type="submit"
             value="Log in"
             disabled={
@@ -93,8 +113,10 @@ const CreateUser = ({
                 ? true
                 : false
             }
-          />
-        </form>
+          >
+            Create User
+          </Button>
+        </Box>
       ) : (
         <Redirect to={{ pathname: "/logout" }} />
       )}
