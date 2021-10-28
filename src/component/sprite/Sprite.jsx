@@ -10,9 +10,10 @@ const Sprite = ({
   cheeksColor,
   dotColor,
   style,
+  className,
 }) => {
   return (
-    <div style={style}>
+    <div style={style} className={className}>
       <MushroomCap
         capColor={capColor}
         capShading={capShading}

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Sprite from "./sprite/Sprite";
 
 const Stage = ({
@@ -10,9 +11,9 @@ const Stage = ({
   dotColor,
   nickname,
 }) => {
+  const [jump, setJump] = useState(false);
   const stageStyling = {
     padding: 0,
-    margin: 0,
     width: "400px",
     height: "300px",
     backgroundColor: "white",
@@ -24,11 +25,12 @@ const Stage = ({
     margin: "0",
     padding: "0",
     position: "relative",
-    top: "140px",
+    top: "240px",
   };
   return (
-    <div style={stageStyling}>
+    <div style={stageStyling} onKeyDown={() => setJump(true)} tabIndex="0">
       <Sprite
+        className={jump ? "jump" : null}
         style={spriteStyling}
         capColor={capColor}
         faceColor={faceColor}
