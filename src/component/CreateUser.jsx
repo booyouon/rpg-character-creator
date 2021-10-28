@@ -24,14 +24,16 @@ const CreateUser = ({
       records: [
         {
           fields: {
-            shirtcolor: "#0000FF",
             password: password,
             nickname: nickname,
-            pantscolor: "#808080",
             username: username.toLowerCase(),
-            haircolor: "#E8BEAC",
-            skincolor: "#E8BEAC",
-            shoecolor: "#654321",
+            capcolor: "#f35269",
+            capshading: "#d1465a",
+            facecolor: "#debca4",
+            faceshading: "#5w2854",
+            eyecolor: "#ffffff",
+            cheekscolor: "#faccd2",
+            dotcolor: "#000000",
           },
         },
       ],

@@ -28,7 +28,7 @@ const Start = ({
     <div style={elStyling}>
       {authenticated ? (
         <div style={elStyling}>
-          <h1>Welcome, {nickname} </h1>
+          <h1>Welcome, {nickname}!</h1>
           <Button style={buttonStyle} variant="contained" color="secondary">
             Start
           </Button>

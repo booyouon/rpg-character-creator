@@ -12,6 +12,7 @@ html,
 
 .title {
   color: #af52bf;
+  font-size: 50px;
 }
 
 .title:hover {
