@@ -1,5 +1,5 @@
 import { useHistory } from "react-router-dom";
-
+import { Button } from "@mui/material";
 const Logout = ({
   setUsername,
   setPassword,
@@ -31,7 +31,9 @@ const Logout = ({
   };
   return (
     <div style={elStyling}>
-      <button onClick={handleLogout}>Log out</button>
+      <Button variant="contained" color="error" onClick={handleLogout}>
+        Log out
+      </Button>
     </div>
   );
 };
