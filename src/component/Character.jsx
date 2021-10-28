@@ -16,7 +16,7 @@ const Character = ({
   };
   return (
     <div style={elStyling}>
-      <h2>{nickname}</h2>
+      <h2>Character Editor</h2>
       <Sprite
         capColor={capColor}
         faceColor={faceColor}

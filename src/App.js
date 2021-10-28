@@ -79,8 +79,9 @@ function App() {
   return (
     <div className="App">
       <ThemeProvider theme={theme}>
-        <Link to="/login">Poop</Link>
-        <Stage
+        <Link to="/start">Poop</Link>
+
+        {/* <Stage
           capColor={capColor}
           faceColor={faceColor}
           capShading={capShading}
@@ -89,11 +90,11 @@ function App() {
           cheeksColor={cheeksColor}
           dotColor={dotColor}
           nickname={nickname}
-        />
-        <Route exact path="/">
+        /> */}
+        {/* <Route exact path="/">
           <Welcome authenticated={authenticated} />
-        </Route>
-        <Route exact path="/login">
+        </Route> */}
+        <Route exact path="/">
           <Auth
             username={username}
             password={password}
@@ -120,7 +121,18 @@ function App() {
           />
         </Route>
         <Route exact path="/start">
-          <Start authenticated={authenticated} nickname={nickname} />
+          <Start
+            authenticated={authenticated}
+            nickname={nickname}
+            username={username}
+            password={password}
+            setUsername={setUsername}
+            setPassword={setPassword}
+            setUserSearch={setUserSearch}
+            toggleFetch={toggleFetch}
+            setToggleFetch={setToggleFetch}
+            setAuthenticated={setAuthenticated}
+          />
         </Route>
         <Route exact path="/character">
           <CharacterCreation

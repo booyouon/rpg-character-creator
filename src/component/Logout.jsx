@@ -6,17 +6,8 @@ const Logout = ({
   setUserSearch,
   toggleFetch,
   setToggleFetch,
-  authenticated,
   setAuthenticated,
 }) => {
-  const elStyling = {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
-    margin: "20px 0",
-  };
-
   const history = useHistory();
 
   const handleLogout = (ev) => {
@@ -29,9 +20,12 @@ const Logout = ({
     setToggleFetch(!toggleFetch);
     history.push("/");
   };
+  const buttonStyle = {
+    width: "200px",
+  };
   return (
-    <div style={elStyling}>
-      <Button variant="contained" color="error" onClick={handleLogout}>
+    <div>
+      <Button style={buttonStyle} color="error" onClick={handleLogout}>
         Log out
       </Button>
     </div>

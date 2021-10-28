@@ -1,7 +1,16 @@
 import { Link, Route, Redirect } from "react-router-dom";
 import { Button } from "@mui/material";
-
-const Start = ({ authenticated, nickname }) => {
+import Logout from "./Logout";
+const Start = ({
+  nickname,
+  setUsername,
+  setPassword,
+  setUserSearch,
+  toggleFetch,
+  setToggleFetch,
+  authenticated,
+  setAuthenticated,
+}) => {
   const elStyling = {
     display: "flex",
     flexDirection: "column",
@@ -12,17 +21,31 @@ const Start = ({ authenticated, nickname }) => {
   const linkStyling = {
     textDecoration: "none",
   };
+  const buttonStyle = {
+    width: "200px",
+  };
   return (
     <div style={elStyling}>
       {authenticated ? (
-        <div>
+        <div style={elStyling}>
           <h1>Welcome, {nickname} </h1>
+          <Button style={buttonStyle} variant="contained" color="secondary">
+            Start
+          </Button>
           <Link to="/character" style={linkStyling}>
-            <Button variant="outlined" color="secondary">
+            <Button style={buttonStyle} variant="contained">
               Edit Character
             </Button>
           </Link>
-          <Button variant="outlined">Start</Button>
+          <Logout
+            setUsername={setUsername}
+            setPassword={setPassword}
+            setUserSearch={setUserSearch}
+            toggleFetch={toggleFetch}
+            setToggleFetch={setToggleFetch}
+            authenticated={authenticated}
+            setAuthenticated={setAuthenticated}
+          />
         </div>
       ) : (
         <Redirect to={{ pathname: "/login" }} />

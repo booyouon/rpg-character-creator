@@ -69,6 +69,7 @@ const ColorPallete = ({
     justifyContent: "center",
     alignItems: "center",
     margin: "20px 0",
+    width: "400px",
   };
   const inputStyle = {
     display: "flex",
