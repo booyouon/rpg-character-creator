@@ -24,17 +24,33 @@ html,
 }
 
 .jump {
-  animation: jump 600ms infinite;
+  animation: jump 500ms infinite;
 }
 
 @keyframes jump {
   0% {
-    top: 240px;
+    top: 230px;
   }
   50% {
-    top: 160px;
+    top: 150px;
+  }
+  50% {
+    top: 150px;
   }
   100% {
-    top: 240px;
+    top: 230px;
+  }
+}
+
+/* .obstacle {
+  animation: obstacle 1s infinite linear;
+} */
+
+@keyframes obstacle {
+  0% {
+    left: 400px;
+  }
+  100% {
+    left: -30px;
   }
 }
