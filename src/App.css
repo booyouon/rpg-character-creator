@@ -24,7 +24,7 @@ html,
 }
 
 .jump {
-  animation: jump 500ms infinite;
+  animation: jump 600ms infinite;
 }
 
 @keyframes jump {
@@ -32,7 +32,7 @@ html,
     top: 240px;
   }
   50% {
-    top: 200px;
+    top: 160px;
   }
   100% {
     top: 240px;

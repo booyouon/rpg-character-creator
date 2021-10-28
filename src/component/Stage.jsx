@@ -27,8 +27,13 @@ const Stage = ({
     position: "relative",
     top: "240px",
   };
+
+  const triggerJump = () => {
+    setJump(true);
+    setTimeout(() => setJump(false), 600);
+  };
   return (
-    <div style={stageStyling} onKeyDown={() => setJump(true)} tabIndex="0">
+    <div style={stageStyling} onKeyDown={triggerJump} tabIndex="0">
       <Sprite
         className={jump ? "jump" : null}
         style={spriteStyling}
