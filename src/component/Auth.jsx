@@ -13,8 +13,13 @@ const Auth = ({
   authenticated,
   setAuthenticated,
 }) => {
+  const authStyling = {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  };
   return (
-    <div>
+    <div style={authStyling}>
       {!authenticated ? (
         <Login
           username={username}

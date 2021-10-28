@@ -1,3 +1,4 @@
+import { Button } from "@mui/material";
 const Login = ({
   username,
   password,
@@ -22,8 +23,8 @@ const Login = ({
     setToggleFetch(!toggleFetch);
   };
   return (
-    <div style={elStyling}>
-      <form onSubmit={handleLogin}>
+    <div>
+      <form style={elStyling} onSubmit={handleLogin}>
         <label htmlFor="username">Username</label>
         <input
           value={username}
@@ -40,7 +41,7 @@ const Login = ({
           type="password"
           onChange={(ev) => setPassword(ev.target.value)}
         ></input>
-        <input type="submit" value="Log in" />
+        <Button type="submit">Log in</Button>
       </form>
     </div>
   );

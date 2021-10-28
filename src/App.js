@@ -7,8 +7,7 @@ import Welcome from "./component/Welcome";
 import CreateUser from "./component/CreateUser";
 import Start from "./component/Start";
 import CharacterCreation from "./component/CharacterCreation";
-import Sprite from "./component/sprite/Sprite";
-
+import Stage from "./component/Stage";
 const API_URL =
   "https://api.airtable.com/v0/apps2LmH1EFxMOZEB/Table%201?api_key=keyU3JZHRhRaUZpsv";
 function App() {
@@ -60,6 +59,16 @@ function App() {
   return (
     <div className="App">
       <Link to="/start">poop</Link>
+      <Stage
+        capColor={capColor}
+        faceColor={faceColor}
+        capShading={capShading}
+        faceShading={faceShading}
+        eyeColor={eyeColor}
+        cheeksColor={cheeksColor}
+        dotColor={dotColor}
+        nickname={nickname}
+      />
       <Route exact path="/">
         <Welcome authenticated={authenticated} />
       </Route>

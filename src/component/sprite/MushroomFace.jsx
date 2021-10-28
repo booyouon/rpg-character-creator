@@ -1,11 +1,12 @@
 const MushroomFace = ({ faceColor, faceShading, eyeColor, cheeksColor }) => {
   return (
-    <div>
+    <div style={{ padding: "0", margin: "0" }}>
       {/* mushroom face*/}
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 -0.5 14 8"
         shape-rendering="crispEdges"
+        style={{ padding: "0", margin: "0" }}
       >
         <metadata>
           Made with Pixels to Svg https://codepen.io/shshaw/pen/XbxvNj

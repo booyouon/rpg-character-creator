@@ -1,5 +1,6 @@
 import Sprite from "./sprite/Sprite";
-const Character = ({
+
+const Stage = ({
   capColor,
   faceColor,
   capShading,
@@ -9,15 +10,25 @@ const Character = ({
   dotColor,
   nickname,
 }) => {
-  console.log(capShading);
-  const elStyling = {
-    width: "50%",
-    height: "50%",
+  const stageStyling = {
+    padding: 0,
+    margin: 0,
+    width: "100%",
+    height: "200px",
+    backgroundColor: "white",
+    border: "1px solid black",
+  };
+  const spriteStyling = {
+    width: "50px",
+    margin: "0",
+    padding: "0",
+    position: "relative",
+    top: "140px",
   };
   return (
-    <div style={elStyling}>
-      <h2>{nickname}</h2>
+    <div style={stageStyling}>
       <Sprite
+        style={spriteStyling}
         capColor={capColor}
         faceColor={faceColor}
         capShading={capShading}
@@ -30,4 +41,4 @@ const Character = ({
   );
 };
 
-export default Character;
+export default Stage;
