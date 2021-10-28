@@ -1,7 +1,7 @@
 import { Button } from "@mui/material";
 import { TextField } from "@mui/material";
 import { Box } from "@mui/system";
-
+import { Link } from "react-router-dom";
 const Login = ({
   username,
   password,
@@ -21,7 +21,9 @@ const Login = ({
   const buttonStyle = {
     width: "200px",
   };
-
+  const linkStyling = {
+    textDecoration: "none",
+  };
   const handleLogin = (ev) => {
     ev.preventDefault();
     // username isn't case sensitive when submitted so I used a toLowerCase method in order to avoid case sensitivtiy
@@ -66,9 +68,11 @@ const Login = ({
           Log in
         </Button>
         <hr />
-        <Button style={buttonStyle} variant="contained" color="success">
-          Create New Account
-        </Button>
+        <Link to="/newuser" style={linkStyling}>
+          <Button style={buttonStyle} variant="contained" color="success">
+            Create New Account
+          </Button>
+        </Link>
       </Box>
     </div>
   );
