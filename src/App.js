@@ -79,7 +79,7 @@ function App() {
   return (
     <div className="App">
       <ThemeProvider theme={theme}>
-        <Link to="/start">poop</Link>
+        <Link to="/start">Poop</Link>
         <Stage
           capColor={capColor}
           faceColor={faceColor}

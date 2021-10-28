@@ -1,4 +1,6 @@
 import { Button } from "@mui/material";
+import { TextField } from "@mui/material";
+import { Box } from "@mui/system";
 
 const Login = ({
   username,
@@ -25,27 +27,37 @@ const Login = ({
   };
   return (
     <div>
-      <form style={elStyling} onSubmit={handleLogin}>
-        <label htmlFor="username">Username</label>
-        <input
+      <Box
+        style={elStyling}
+        component="form"
+        autoComplete="off"
+        sx={{
+          "& .MuiTextField-root": { m: 1, width: "50vw", minWidth: "250px" },
+        }}
+        noValidate
+        onSubmit={handleLogin}
+      >
+        <TextField
           value={username}
+          label="Username"
           name="username"
           id="username"
-          type="text"
           onChange={(ev) => setUsername(ev.target.value)}
-        ></input>
-        <label htmlFor="password">Password</label>
-        <input
+          required
+        ></TextField>
+        <TextField
           value={password}
+          label="Password"
           name="password"
           id="password"
           type="password"
           onChange={(ev) => setPassword(ev.target.value)}
-        ></input>
+          required
+        ></TextField>
         <Button variant="contained" type="submit" color="secondary">
           Log in
         </Button>
-      </form>
+      </Box>
     </div>
   );
 };
