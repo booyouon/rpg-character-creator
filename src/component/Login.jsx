@@ -1,5 +1,4 @@
-import { Button } from "@mui/material";
-import { TextField } from "@mui/material";
+import { Button, Alert, TextField } from "@mui/material";
 import { Box } from "@mui/system";
 import { Link } from "react-router-dom";
 const Login = ({
@@ -10,6 +9,9 @@ const Login = ({
   setUserSearch,
   toggleFetch,
   setToggleFetch,
+  loginFailed,
+  attempt,
+  setAttempt,
 }) => {
   const elStyling = {
     display: "flex",
@@ -27,6 +29,7 @@ const Login = ({
   const handleLogin = (ev) => {
     ev.preventDefault();
     // username isn't case sensitive when submitted so I used a toLowerCase method in order to avoid case sensitivtiy
+    setAttempt(attempt + 1);
     setUserSearch(username.toLowerCase());
     setToggleFetch(!toggleFetch);
   };
@@ -42,6 +45,12 @@ const Login = ({
         noValidate
         onSubmit={handleLogin}
       >
+        <Alert
+          style={{ display: loginFailed ? "block" : "none" }}
+          severity="error"
+        >
+          Incorrect username or password.
+        </Alert>
         <TextField
           value={username}
           label="Username"

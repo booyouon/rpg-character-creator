@@ -11,6 +11,9 @@ const Auth = ({
   setToggleFetch,
   authenticated,
   setAuthenticated,
+  loginFailed,
+  attempt,
+  setAttempt,
 }) => {
   const authStyling = {
     display: "flex",
@@ -28,6 +31,9 @@ const Auth = ({
           setUserSearch={setUserSearch}
           toggleFetch={toggleFetch}
           setToggleFetch={setToggleFetch}
+          loginFailed={loginFailed}
+          attempt={attempt}
+          setAttempt={setAttempt}
         />
       ) : (
         <Logout

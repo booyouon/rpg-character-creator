@@ -7,6 +7,7 @@ import Auth from "./component/Auth";
 import CreateUser from "./component/CreateUser";
 import Start from "./component/Start";
 import CharacterCreation from "./component/CharacterCreation";
+import { useCallback } from "react";
 
 const API_URL =
   "https://api.airtable.com/v0/apps2LmH1EFxMOZEB/Table%201?api_key=keyU3JZHRhRaUZpsv";
@@ -26,33 +27,41 @@ function App() {
   const [cheeksColor, setCheeksColor] = useState("#FFC0CB");
   const [dotColor, setDotColor] = useState("#D3D3D3");
   const [highscore, setHighscore] = useState(0);
+  const [loginFailed, setLoginFailed] = useState(false);
+  const [attempt, setAttempt] = useState(0);
   const history = useHistory();
 
+  const getUserData = useCallback(async () => {
+    const res = await axios.get(
+      `${API_URL}&filterByFormula=({username}='${userSearch}')`
+    );
+    if (
+      res.data.records[0] &&
+      res.data.records[0].fields.password === password
+    ) {
+      setAuthenticated(true);
+      setUserData(res.data.records[0]);
+      setCapColor(res.data.records[0].fields.capcolor);
+      setFaceColor(res.data.records[0].fields.facecolor);
+      setCapShading(res.data.records[0].fields.capshading);
+      setFaceShading(res.data.records[0].fields.faceshading);
+      setEyeColor(res.data.records[0].fields.eyecolor);
+      setCheeksColor(res.data.records[0].fields.cheekscolor);
+      setDotColor(res.data.records[0].fields.dotcolor);
+      setNickname(res.data.records[0].fields.nickname);
+      setHighscore(res.data.records[0].fields.highscore);
+      history.push("/start");
+    } else if (
+      attempt > 0 &&
+      res.data.records[0].fields.password !== password
+    ) {
+      setLoginFailed(true);
+    }
+  });
+
   useEffect(() => {
-    const getUserData = async () => {
-      const res = await axios.get(
-        `${API_URL}&filterByFormula=({username}='${userSearch}')`
-      );
-      if (
-        res.data.records[0] &&
-        res.data.records[0].fields.password === password
-      ) {
-        setAuthenticated(true);
-        setUserData(res.data.records[0]);
-        setCapColor(res.data.records[0].fields.capcolor);
-        setFaceColor(res.data.records[0].fields.facecolor);
-        setCapShading(res.data.records[0].fields.capshading);
-        setFaceShading(res.data.records[0].fields.faceshading);
-        setEyeColor(res.data.records[0].fields.eyecolor);
-        setCheeksColor(res.data.records[0].fields.cheekscolor);
-        setDotColor(res.data.records[0].fields.dotcolor);
-        setNickname(res.data.records[0].fields.nickname);
-        setHighscore(res.data.records[0].fields.highscore);
-        history.push("/start");
-      }
-    };
     getUserData();
-  }, [toggleFetch, password, history, userSearch]);
+  }, [toggleFetch, userSearch, getUserData]);
 
   // custom MUI color palette
   const theme = createTheme({
@@ -90,6 +99,9 @@ function App() {
             setToggleFetch={setToggleFetch}
             authenticated={authenticated}
             setAuthenticated={setAuthenticated}
+            loginFailed={loginFailed}
+            attempt={attempt}
+            setAttempt={setAttempt}
           />
         </Route>
         <Route exact path="/newuser">
