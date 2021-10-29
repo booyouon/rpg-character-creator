@@ -69,20 +69,21 @@ const Login = ({
           onChange={(ev) => setPassword(ev.target.value)}
           required
         ></TextField>
-        <Button
-          style={buttonStyle}
-          variant="contained"
-          type="submit"
-          color="secondary"
-        >
-          Log in
-        </Button>
-        <hr />
-        <Link to="/newuser" style={linkStyling}>
-          <Button style={buttonStyle} variant="contained" color="success">
-            Create New Account
+        <div style={{ marginTop: "50px" }}>
+          <Button
+            style={buttonStyle}
+            variant="contained"
+            type="submit"
+            color="secondary"
+          >
+            Log in
           </Button>
-        </Link>
+          <Link to="/newuser" style={linkStyling}>
+            <Button style={buttonStyle} variant="contained" color="success">
+              Create New Account
+            </Button>
+          </Link>
+        </div>
       </Box>
     </div>
   );
