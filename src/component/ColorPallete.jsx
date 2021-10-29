@@ -79,7 +79,6 @@ const ColorPallete = ({
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
-    width: "100%",
     padding: "15px",
   };
   const buttonStyle = {
@@ -91,7 +90,7 @@ const ColorPallete = ({
   return (
     <div>
       <form onSubmit={handleSubmit} style={elStyling}>
-        <div style={inputStyle}>
+        <div className="colorSelect" style={inputStyle}>
           <label htmlFor="capcolor">Cap Color</label>
           <input
             name="capcolor"
@@ -101,7 +100,7 @@ const ColorPallete = ({
             onChange={(ev) => setTempCap(ev.target.value)}
           ></input>
         </div>
-        <div style={inputStyle}>
+        <div className="colorSelect" style={inputStyle}>
           <label htmlFor="capshading">Cap Shading</label>
           <input
             name="capshading"
@@ -111,7 +110,7 @@ const ColorPallete = ({
             onChange={(ev) => setTempCapShading(ev.target.value)}
           ></input>
         </div>
-        <div style={inputStyle}>
+        <div className="colorSelect" style={inputStyle}>
           <label htmlFor="dotcolor">Dots Color</label>
           <input
             name="dotcolor"
@@ -121,7 +120,7 @@ const ColorPallete = ({
             onChange={(ev) => setTempDot(ev.target.value)}
           ></input>
         </div>
-        <div style={inputStyle}>
+        <div className="colorSelect" style={inputStyle}>
           <label htmlFor="facecolor">Face Color</label>
           <input
             name="facecolor"
@@ -131,7 +130,7 @@ const ColorPallete = ({
             onChange={(ev) => setTempFace(ev.target.value)}
           ></input>
         </div>
-        <div style={inputStyle}>
+        <div className="colorSelect" style={inputStyle}>
           <label htmlFor="faceshading">Face Shading</label>
           <input
             name="faceshading"
@@ -141,7 +140,7 @@ const ColorPallete = ({
             onChange={(ev) => setTempFaceShading(ev.target.value)}
           ></input>
         </div>
-        <div style={inputStyle}>
+        <div className="colorSelect" style={inputStyle}>
           <label htmlFor="eyecolor">Eye Color</label>
           <input
             name="eyecolor"
@@ -151,7 +150,7 @@ const ColorPallete = ({
             onChange={(ev) => setTempEye(ev.target.value)}
           ></input>
         </div>
-        <div style={inputStyle}>
+        <div className="colorSelect" style={inputStyle}>
           <label htmlFor="cheekscolor">Cheeks Color</label>
           <input
             name="cheekscolor"

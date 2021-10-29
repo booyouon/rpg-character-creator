@@ -134,7 +134,7 @@ const Stage = ({
   const vanishingThings = {
     width: "50px",
     height: "300px",
-    backgroundColor: "white",
+    backgroundColor: "lightblue",
     zIndex: "1",
   };
 
@@ -154,7 +154,7 @@ const Stage = ({
           width: "500px",
         }}
       >
-        <div style={vanishingThings}></div>
+        <div className="invisible" style={vanishingThings}></div>
         <div style={stageStyling}>
           <Sprite
             className={`sprite ${jump ? "jump" : null}`}
@@ -192,7 +192,7 @@ const Stage = ({
             </svg>
           </div>
         </div>
-        <div style={vanishingThings}></div>
+        <div className="invisible" style={vanishingThings}></div>
       </div>
       <Button
         onClick={() => setGameover(false)}

@@ -14,6 +14,10 @@ html,
   font-family: "VT323", monospace !important;
 }
 
+body {
+  background-color: lightblue;
+}
+
 .title {
   color: #af52bf;
   font-size: 50px;
@@ -48,5 +52,15 @@ html,
   }
   100% {
     left: -30px;
+  }
+}
+
+.colorSelect {
+  width: 100%;
+}
+
+@media only screen and (max-width: 600px) {
+  .colorSelect {
+    width: 80%;
   }
 }
