@@ -57,6 +57,7 @@ const Start = ({
             password={password}
             id={id}
             API_URL={API_URL}
+            nickname={nickname}
           />
           <Link to="/character" style={linkStyling}>
             <Button style={buttonStyle} variant="contained">
