@@ -79,7 +79,7 @@ const Stage = ({
         setGameover(true);
         setScore(0);
       }
-    }, 10);
+    }, 1000);
   }, [
     gameover,
     API_URL,
