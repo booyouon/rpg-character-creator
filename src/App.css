@@ -29,22 +29,18 @@ html,
 
 @keyframes jump {
   0% {
-    top: 220px;
+    top: 235px;
   }
   50% {
-    top: 150px;
+    top: 160px;
   }
   50% {
-    top: 150px;
+    top: 160px;
   }
   100% {
-    top: 220px;
+    top: 235px;
   }
 }
-
-/* .obstacle {
-  animation: obstacle 1s infinite linear;
-} */
 
 @keyframes obstacle {
   0% {

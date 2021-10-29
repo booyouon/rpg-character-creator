@@ -32,14 +32,14 @@ const Stage = ({
       if (
         parseInt(
           window.getComputedStyle(obstacleDOM).getPropertyValue("left")
-        ) <= 55 &&
+        ) <= 50 &&
         parseInt(
           window.getComputedStyle(obstacleDOM).getPropertyValue("left")
         ) >= -10 &&
         parseInt(window.getComputedStyle(spriteDOM).getPropertyValue("top")) <=
-          220 &&
+          235 &&
         parseInt(window.getComputedStyle(spriteDOM).getPropertyValue("top")) >=
-          196
+          210
       ) {
         setGameover(true);
         setScore(0);
@@ -52,19 +52,20 @@ const Stage = ({
     margin: "0",
     padding: "0",
     position: "relative",
-    top: "220px",
+    top: "235px",
   };
 
   const obstacleStyling = {
     width: "30px",
     position: "relative",
-    top: "180px",
+    top: "200px",
     left: "400px",
     animation: gameover ? "none" : "obstacle 1.1s infinite linear",
   };
 
   const buttonStyle = {
     width: "300px",
+    marginTop: "20px",
   };
 
   const triggerJump = (ev) => {
@@ -87,6 +88,11 @@ const Stage = ({
 
   return (
     <div onKeyUp={triggerJump} tabIndex="0">
+      <div style={{ display: "flex", justifyContent: "space-evenly" }}>
+        <p>Score: {score}</p>
+        <p>High Score: </p>
+      </div>
+
       <div
         style={{
           display: "flex",
@@ -97,9 +103,7 @@ const Stage = ({
         }}
       >
         <div style={vanishingThings}></div>
-
         <div style={stageStyling}>
-          <div>Score: {score}</div>
           <Sprite
             className={`sprite ${jump ? "jump" : null}`}
             style={spriteStyling}
