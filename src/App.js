@@ -13,7 +13,7 @@ const API_URL =
   "https://api.airtable.com/v0/apps2LmH1EFxMOZEB/Table%201?api_key=keyU3JZHRhRaUZpsv";
 function App() {
   const [userData, setUserData] = useState([]);
-  const [userSearch, setUserSearch] = useState(" ");
+  const [userSearch, setUserSearch] = useState("");
   const [authenticated, setAuthenticated] = useState(false);
   const [toggleFetch, setToggleFetch] = useState(false);
   const [username, setUsername] = useState("");
@@ -32,38 +32,41 @@ function App() {
   const history = useHistory();
 
   const getUserData = useCallback(async () => {
-    const res = await axios.get(
-      `${API_URL}&filterByFormula=({username}='${userSearch}')`
-    );
-    if (
-      res.data.records[0] &&
-      res.data.records[0].fields.password === password
-    ) {
-      setAuthenticated(true);
-      setAttempt(0);
-      setLoginFailed(false);
-      setUserData(res.data.records[0]);
-      setCapColor(res.data.records[0].fields.capcolor);
-      setFaceColor(res.data.records[0].fields.facecolor);
-      setCapShading(res.data.records[0].fields.capshading);
-      setFaceShading(res.data.records[0].fields.faceshading);
-      setEyeColor(res.data.records[0].fields.eyecolor);
-      setCheeksColor(res.data.records[0].fields.cheekscolor);
-      setDotColor(res.data.records[0].fields.dotcolor);
-      setNickname(res.data.records[0].fields.nickname);
-      setHighscore(res.data.records[0].fields.highscore);
-      history.push("/start");
-    } else if (
-      attempt > 0 &&
-      res.data.records[0].fields.password !== password
-    ) {
-      setLoginFailed(true);
+    if (userSearch) {
+      const res = await axios.get(
+        `${API_URL}&filterByFormula=({username}='${userSearch}')`
+      );
+
+      if (
+        res.data.records[0] &&
+        res.data.records[0].fields.password === password
+      ) {
+        setAuthenticated(true);
+        setAttempt(0);
+        setLoginFailed(false);
+        setUserData(res.data.records[0]);
+        setCapColor(res.data.records[0].fields.capcolor);
+        setFaceColor(res.data.records[0].fields.facecolor);
+        setCapShading(res.data.records[0].fields.capshading);
+        setFaceShading(res.data.records[0].fields.faceshading);
+        setEyeColor(res.data.records[0].fields.eyecolor);
+        setCheeksColor(res.data.records[0].fields.cheekscolor);
+        setDotColor(res.data.records[0].fields.dotcolor);
+        setNickname(res.data.records[0].fields.nickname);
+        setHighscore(res.data.records[0].fields.highscore);
+        history.push("/start");
+      } else if (
+        attempt > 0 &&
+        res.data.records[0].fields.password !== password
+      ) {
+        setLoginFailed(true);
+      }
     }
-  }, [toggleFetch]);
+  }, [attempt, history, password, userSearch]);
 
   useEffect(() => {
     getUserData();
-  }, [getUserData]);
+  }, [getUserData, toggleFetch]);
 
   // custom MUI color palette
   const theme = createTheme({

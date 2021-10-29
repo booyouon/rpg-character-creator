@@ -30,6 +30,7 @@ const Login = ({
     ev.preventDefault();
     // username isn't case sensitive when submitted so I used a toLowerCase method in order to avoid case sensitivtiy
     setAttempt(attempt + 1);
+    console.log(attempt);
     setUserSearch(username.toLowerCase());
     setToggleFetch(!toggleFetch);
   };

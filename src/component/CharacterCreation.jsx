@@ -103,7 +103,7 @@ const CharacterCreation = ({
           />
         </div>
       ) : (
-        <Redirect to={{ pathname: "/login" }} />
+        <Redirect to={{ pathname: "/" }} />
       )}
     </div>
   );

@@ -30,7 +30,7 @@ const CreateUser = ({
             capcolor: "#f35269",
             capshading: "#d1465a",
             facecolor: "#debca4",
-            faceshading: "#5w2854",
+            faceshading: "#964B00",
             eyecolor: "#ffffff",
             cheekscolor: "#faccd2",
             dotcolor: "#000000",
