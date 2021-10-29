@@ -10,6 +10,7 @@ const Stage = ({
   eyeColor,
   cheeksColor,
   dotColor,
+  highscore,
 }) => {
   const [jump, setJump] = useState(false);
   const [gameover, setGameover] = useState(true);
@@ -90,7 +91,7 @@ const Stage = ({
     <div onKeyUp={triggerJump} tabIndex="0">
       <div style={{ display: "flex", justifyContent: "space-evenly" }}>
         <p>Score: {score}</p>
-        <p>High Score: </p>
+        <p>High Score: {highscore}</p>
       </div>
 
       <div

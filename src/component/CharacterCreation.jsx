@@ -24,6 +24,7 @@ const CharacterCreation = ({
   username,
   password,
   nickname,
+  highscore,
 }) => {
   const elStyling = {
     display: "flex",
@@ -58,6 +59,7 @@ const CharacterCreation = ({
           <ColorPallete
             id={id}
             API_URL={API_URL}
+            highscore={highscore}
             capColor={capColor}
             setCapColor={setCapColor}
             faceColor={faceColor}

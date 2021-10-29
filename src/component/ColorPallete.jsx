@@ -8,6 +8,7 @@ const ColorPallete = ({
   username,
   password,
   nickname,
+  highscore,
 
   setCapColor,
   setFaceColor,
@@ -50,6 +51,7 @@ const ColorPallete = ({
             username: username,
             password: password,
             nickname: nickname,
+            highscore: highscore,
             capcolor: tempCap,
             facecolor: tempFace,
             capshading: tempCapShading,

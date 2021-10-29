@@ -18,6 +18,7 @@ const Start = ({
   eyeColor,
   cheeksColor,
   dotColor,
+  highscore,
 }) => {
   const elStyling = {
     display: "flex",
@@ -45,6 +46,7 @@ const Start = ({
             eyeColor={eyeColor}
             cheeksColor={cheeksColor}
             dotColor={dotColor}
+            highscore={highscore}
           />
           <Link to="/character" style={linkStyling}>
             <Button style={buttonStyle} variant="contained">

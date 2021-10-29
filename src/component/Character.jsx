@@ -7,7 +7,6 @@ const Character = ({
   eyeColor,
   cheeksColor,
   dotColor,
-  nickname,
 }) => {
   console.log(capShading);
   const elStyling = {

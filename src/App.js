@@ -26,6 +26,7 @@ function App() {
   const [eyeColor, setEyeColor] = useState("#0A0A0A");
   const [cheeksColor, setCheeksColor] = useState("#FFC0CB");
   const [dotColor, setDotColor] = useState("#D3D3D3");
+  const [highscore, setHighscore] = useState(0);
   const history = useHistory();
 
   useEffect(() => {
@@ -48,6 +49,7 @@ function App() {
         setCheeksColor(res.data.records[0].fields.cheekscolor);
         setDotColor(res.data.records[0].fields.dotcolor);
         setNickname(res.data.records[0].fields.nickname);
+        setHighscore(res.data.records[0].fields.highscore);
         history.push("/start");
       } else {
         console.log("Login Failed. Please check your username or password.");
@@ -126,6 +128,7 @@ function App() {
             eyeColor={eyeColor}
             cheeksColor={cheeksColor}
             dotColor={dotColor}
+            highscore={highscore}
           />
         </Route>
         <Route exact path="/character">
@@ -150,6 +153,7 @@ function App() {
             username={username}
             password={password}
             nickname={nickname}
+            highscore={highscore}
           />
         </Route>
       </ThemeProvider>

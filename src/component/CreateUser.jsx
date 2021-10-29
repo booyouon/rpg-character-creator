@@ -34,6 +34,7 @@ const CreateUser = ({
             eyecolor: "#ffffff",
             cheekscolor: "#faccd2",
             dotcolor: "#000000",
+            highscore: "0",
           },
         },
       ],
