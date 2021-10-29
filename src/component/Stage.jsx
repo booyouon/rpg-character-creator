@@ -123,6 +123,7 @@ const Stage = ({
   const triggerJump = (ev) => {
     if (
       !jump &&
+      !gameover &&
       (ev.keyCode === 32 || ev.keyCode === 38 || ev.keyCode === 87)
     ) {
       setJump(true);
@@ -132,7 +133,7 @@ const Stage = ({
   };
 
   const triggerJumpByClick = () => {
-    if (!jump) {
+    if (!jump && !gameover) {
       setJump(true);
       setScore(score + 1);
       setTimeout(() => setJump(false), 500);
