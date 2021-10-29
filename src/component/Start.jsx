@@ -19,6 +19,11 @@ const Start = ({
   cheeksColor,
   dotColor,
   highscore,
+  setHighscore,
+  username,
+  password,
+  id,
+  API_URL,
 }) => {
   const elStyling = {
     display: "flex",
@@ -47,6 +52,11 @@ const Start = ({
             cheeksColor={cheeksColor}
             dotColor={dotColor}
             highscore={highscore}
+            setHighscore={setHighscore}
+            username={username}
+            password={password}
+            id={id}
+            API_URL={API_URL}
           />
           <Link to="/character" style={linkStyling}>
             <Button style={buttonStyle} variant="contained">

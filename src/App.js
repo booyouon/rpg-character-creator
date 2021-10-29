@@ -7,7 +7,6 @@ import Auth from "./component/Auth";
 import CreateUser from "./component/CreateUser";
 import Start from "./component/Start";
 import CharacterCreation from "./component/CharacterCreation";
-import Stage from "./component/Stage";
 
 const API_URL =
   "https://api.airtable.com/v0/apps2LmH1EFxMOZEB/Table%201?api_key=keyU3JZHRhRaUZpsv";
@@ -111,6 +110,8 @@ function App() {
         </Route>
         <Route exact path="/start">
           <Start
+            id={userData.id}
+            API_URL={API_URL}
             authenticated={authenticated}
             nickname={nickname}
             username={username}
@@ -129,6 +130,7 @@ function App() {
             cheeksColor={cheeksColor}
             dotColor={dotColor}
             highscore={highscore}
+            setHighscore={setHighscore}
           />
         </Route>
         <Route exact path="/character">

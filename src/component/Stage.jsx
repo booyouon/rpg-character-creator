@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Sprite from "./sprite/Sprite";
 import { Button } from "@mui/material";
+import axios from "axios";
 
 const Stage = ({
   capColor,
@@ -11,6 +12,12 @@ const Stage = ({
   cheeksColor,
   dotColor,
   highscore,
+  setHighscore,
+  username,
+  password,
+  nickname,
+  id,
+  API_URL,
 }) => {
   const [jump, setJump] = useState(false);
   const [gameover, setGameover] = useState(true);
@@ -29,6 +36,34 @@ const Stage = ({
   useEffect(() => {
     const spriteDOM = document.querySelector(".sprite");
     const obstacleDOM = document.querySelector(".obstacle");
+    const postHighscore = async () => {
+      console.log(score);
+      setHighscore(score);
+      const editData = {
+        records: [
+          {
+            id: id,
+            fields: {
+              username: username,
+              password: password,
+              nickname: nickname,
+              highscore: String(score),
+              capcolor: capColor,
+              facecolor: faceColor,
+              capshading: capShading,
+              faceshading: faceShading,
+              eyecolor: eyeColor,
+              cheekscolor: cheeksColor,
+              dotcolor: dotColor,
+            },
+          },
+        ],
+      };
+      await axios.put(API_URL, editData);
+    };
+    if (score > highscore && gameover) {
+      postHighscore();
+    }
     setInterval(() => {
       if (
         parseInt(
@@ -46,7 +81,7 @@ const Stage = ({
         setScore(0);
       }
     }, 10);
-  }, []);
+  }, [gameover]);
 
   const spriteStyling = {
     width: "60px",
