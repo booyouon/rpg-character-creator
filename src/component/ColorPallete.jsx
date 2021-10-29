@@ -32,10 +32,12 @@ const ColorPallete = ({
   setTempEye,
   setTempCheeks,
   setTempDot,
+
+  setSaved,
 }) => {
   const handleSubmit = async (ev) => {
     ev.preventDefault();
-
+    setSaved(true);
     setCapColor(tempCap);
     setFaceColor(tempFace);
     setCapShading(tempCapShading);
@@ -170,7 +172,9 @@ const ColorPallete = ({
           </Button>
 
           <Link style={{ textDecoration: "none" }} to="/start">
-            <Button variant="contained">Home</Button>
+            <Button variant="contained" onClick={() => setSaved(false)}>
+              Home
+            </Button>
           </Link>
         </div>
       </form>

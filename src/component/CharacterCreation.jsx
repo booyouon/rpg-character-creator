@@ -2,6 +2,7 @@ import Character from "./Character";
 import ColorPallete from "./ColorPallete";
 import { Redirect } from "react-router-dom";
 import { useState } from "react";
+import { Alert } from "@mui/material";
 
 const CharacterCreation = ({
   id,
@@ -41,11 +42,18 @@ const CharacterCreation = ({
   const [tempEye, setTempEye] = useState(eyeColor);
   const [tempCheeks, setTempCheeks] = useState(cheeksColor);
   const [tempDot, setTempDot] = useState(dotColor);
+  const [saved, setSaved] = useState(false);
 
   return (
     <div>
       {authenticated ? (
         <div style={elStyling}>
+          <Alert
+            style={{ display: saved ? "block" : "none" }}
+            severity="success"
+          >
+            Character changes saved!
+          </Alert>
           <Character
             capColor={tempCap}
             faceColor={tempFace}
@@ -91,6 +99,7 @@ const CharacterCreation = ({
             setTempEye={setTempEye}
             setTempCheeks={setTempCheeks}
             setTempDot={setTempDot}
+            setSaved={setSaved}
           />
         </div>
       ) : (
