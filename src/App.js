@@ -40,6 +40,8 @@ function App() {
       res.data.records[0].fields.password === password
     ) {
       setAuthenticated(true);
+      setAttempt(0);
+      setLoginFailed(false);
       setUserData(res.data.records[0]);
       setCapColor(res.data.records[0].fields.capcolor);
       setFaceColor(res.data.records[0].fields.facecolor);
@@ -57,11 +59,11 @@ function App() {
     ) {
       setLoginFailed(true);
     }
-  });
+  }, [toggleFetch]);
 
   useEffect(() => {
     getUserData();
-  }, [toggleFetch, userSearch, getUserData]);
+  }, [getUserData]);
 
   // custom MUI color palette
   const theme = createTheme({

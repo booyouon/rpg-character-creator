@@ -13,7 +13,7 @@ const Logout = ({
   const handleLogout = (ev) => {
     ev.preventDefault();
     // username isn't case sensitive when submitted so I used a toLowerCase method in order to avoid case sensitivtiy
-    setUserSearch(" ");
+    setUserSearch("");
     setPassword("");
     setUsername("");
     setAuthenticated(false);
