@@ -49,7 +49,7 @@ const CreateUser = ({
     const res = await axios.get(
       `${API_URL}&filterByFormula=({username}='${username.toLowerCase()}')`
     );
-    res.data.records[0] ? console.log("user cannot be used") : addUser();
+    !res.data.records[0] && addUser();
   };
 
   return (
