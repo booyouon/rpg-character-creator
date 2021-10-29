@@ -1,6 +1,7 @@
 import { Link, Redirect } from "react-router-dom";
 import { Button } from "@mui/material";
 import Logout from "./Logout";
+import Stage from "./Stage";
 const Start = ({
   nickname,
   setUsername,
@@ -10,6 +11,13 @@ const Start = ({
   setToggleFetch,
   authenticated,
   setAuthenticated,
+  capColor,
+  faceColor,
+  capShading,
+  faceShading,
+  eyeColor,
+  cheeksColor,
+  dotColor,
 }) => {
   const elStyling = {
     display: "flex",
@@ -29,9 +37,15 @@ const Start = ({
       {authenticated ? (
         <div style={elStyling}>
           <h1>Welcome, {nickname}!</h1>
-          <Button style={buttonStyle} variant="contained" color="secondary">
-            Start
-          </Button>
+          <Stage
+            capColor={capColor}
+            faceColor={faceColor}
+            capShading={capShading}
+            faceShading={faceShading}
+            eyeColor={eyeColor}
+            cheeksColor={cheeksColor}
+            dotColor={dotColor}
+          />
           <Link to="/character" style={linkStyling}>
             <Button style={buttonStyle} variant="contained">
               Edit Character

@@ -33,7 +33,6 @@ function App() {
       const res = await axios.get(
         `${API_URL}&filterByFormula=({username}='${userSearch}')`
       );
-      console.log(res.data.records[0]);
       if (
         res.data.records[0] &&
         res.data.records[0].fields.password === password
@@ -82,17 +81,6 @@ function App() {
           <h1 className="title">MushVroom</h1>
         </Link>
 
-        <Stage
-          capColor={capColor}
-          faceColor={faceColor}
-          capShading={capShading}
-          faceShading={faceShading}
-          eyeColor={eyeColor}
-          cheeksColor={cheeksColor}
-          dotColor={dotColor}
-          nickname={nickname}
-        />
-
         <Route exact path="/">
           <Auth
             username={username}
@@ -131,6 +119,13 @@ function App() {
             toggleFetch={toggleFetch}
             setToggleFetch={setToggleFetch}
             setAuthenticated={setAuthenticated}
+            capColor={capColor}
+            faceColor={faceColor}
+            capShading={capShading}
+            faceShading={faceShading}
+            eyeColor={eyeColor}
+            cheeksColor={cheeksColor}
+            dotColor={dotColor}
           />
         </Route>
         <Route exact path="/character">
