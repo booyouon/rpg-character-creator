@@ -37,7 +37,6 @@ const Stage = ({
     const spriteDOM = document.querySelector(".sprite");
     const obstacleDOM = document.querySelector(".obstacle");
     const postHighscore = async () => {
-      console.log(score);
       setHighscore(score);
       const editData = {
         records: [
@@ -142,8 +141,8 @@ const Stage = ({
   return (
     <div onKeyUp={triggerJump} tabIndex="0">
       <div style={{ display: "flex", justifyContent: "space-evenly" }}>
-        <p>Score: {score}</p>
-        <p>High Score: {highscore}</p>
+        <h3>Score: {score}</h3>
+        <h3>High Score: {highscore}</h3>
       </div>
 
       <div

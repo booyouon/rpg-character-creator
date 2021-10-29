@@ -8,7 +8,6 @@ const Character = ({
   cheeksColor,
   dotColor,
 }) => {
-  console.log(capShading);
   const elStyling = {
     width: "20%",
     height: "20%",

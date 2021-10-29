@@ -46,7 +46,6 @@ const CreateUser = ({
 
   const handleSubmit = async (ev) => {
     ev.preventDefault();
-    console.log("clicked");
     const res = await axios.get(
       `${API_URL}&filterByFormula=({username}='${username.toLowerCase()}')`
     );

@@ -37,7 +37,6 @@ function App() {
         res.data.records[0] &&
         res.data.records[0].fields.password === password
       ) {
-        console.log("Login Successful");
         setAuthenticated(true);
         setUserData(res.data.records[0]);
         setCapColor(res.data.records[0].fields.capcolor);
@@ -50,8 +49,6 @@ function App() {
         setNickname(res.data.records[0].fields.nickname);
         setHighscore(res.data.records[0].fields.highscore);
         history.push("/start");
-      } else {
-        console.log("Login Failed. Please check your username or password.");
       }
     };
     getUserData();
