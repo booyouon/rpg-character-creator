@@ -81,7 +81,24 @@ const Stage = ({
         setScore(0);
       }
     }, 10);
-  }, [gameover]);
+  }, [
+    gameover,
+    API_URL,
+    capColor,
+    capShading,
+    cheeksColor,
+    dotColor,
+    eyeColor,
+    faceColor,
+    faceShading,
+    highscore,
+    id,
+    nickname,
+    password,
+    score,
+    setHighscore,
+    username,
+  ]);
 
   const spriteStyling = {
     width: "60px",
