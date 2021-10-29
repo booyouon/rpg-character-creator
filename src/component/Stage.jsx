@@ -131,6 +131,14 @@ const Stage = ({
     }
   };
 
+  const triggerJumpByClick = () => {
+    if (!jump) {
+      setJump(true);
+      setScore(score + 1);
+      setTimeout(() => setJump(false), 500);
+    }
+  };
+
   const vanishingThings = {
     width: "50px",
     height: "300px",
@@ -146,6 +154,7 @@ const Stage = ({
       </div>
 
       <div
+        onClick={triggerJumpByClick}
         style={{
           display: "flex",
           justifyContent: "center",
