@@ -86,6 +86,7 @@ const ColorPallete = ({
     flexDirection: "row",
     justifyContent: "center",
     width: "100%",
+    marginTop: "10px",
   };
   return (
     <div>

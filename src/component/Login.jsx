@@ -69,7 +69,7 @@ const Login = ({
           onChange={(ev) => setPassword(ev.target.value)}
           required
         ></TextField>
-        <div style={{ marginTop: "50px" }}>
+        <div style={{ marginTop: "25px" }}>
           <Button
             style={buttonStyle}
             variant="contained"

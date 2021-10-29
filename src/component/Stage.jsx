@@ -117,7 +117,7 @@ const Stage = ({
 
   const buttonStyle = {
     width: "300px",
-    marginTop: "20px",
+    marginTop: "25px",
   };
 
   const triggerJump = (ev) => {
