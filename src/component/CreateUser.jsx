@@ -3,6 +3,7 @@ import { useState } from "react";
 import axios from "axios";
 import { Button, TextField } from "@mui/material";
 import { Box } from "@mui/system";
+import { Alert } from "@mui/material";
 
 const CreateUser = ({
   username,
@@ -17,6 +18,7 @@ const CreateUser = ({
 }) => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [nickname, setNickname] = useState("");
+  const [createFailed, setCreateFailed] = useState(false);
 
   const addUser = async () => {
     const newUser = {
@@ -39,6 +41,7 @@ const CreateUser = ({
       ],
     };
     await axios.post(API_URL, newUser);
+    setCreateFailed(false);
     setUserSearch(username.toLowerCase());
     setToggleFetch(!toggleFetch);
   };
@@ -48,7 +51,7 @@ const CreateUser = ({
     const res = await axios.get(
       `${API_URL}&filterByFormula=({username}='${username.toLowerCase()}')`
     );
-    !res.data.records[0] && addUser();
+    !res.data.records[0] ? addUser() : setCreateFailed(true);
   };
 
   return (
@@ -65,6 +68,12 @@ const CreateUser = ({
           autoSave="off"
         >
           <div>
+            <Alert
+              style={{ display: createFailed ? "block" : "none" }}
+              severity="error"
+            >
+              Username already in use.
+            </Alert>
             <TextField
               value={username}
               name="username"
