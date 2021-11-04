@@ -21,6 +21,7 @@ const Stage = ({
 }) => {
   const [jump, setJump] = useState(false);
   const [gameover, setGameover] = useState(true);
+  const [attempt, setAttempt] = useState(0);
 
   const [score, setScore] = useState(0);
 
@@ -77,6 +78,8 @@ const Stage = ({
           210
       ) {
         setGameover(true);
+        setAttempt(attempt + 1);
+        console.log(attempt);
         setScore(0);
       }
     }, 250);
@@ -97,6 +100,8 @@ const Stage = ({
     score,
     setHighscore,
     username,
+    attempt,
+    setAttempt,
   ]);
 
   const spriteStyling = {
@@ -147,6 +152,17 @@ const Stage = ({
     zIndex: "1",
   };
 
+  const gameoverStyling = {
+    display: gameover && attempt > 0 ? "block" : "none",
+    position: "absolute",
+    textAlign: "center",
+    marginLeft: "auto",
+    marginRight: "auto",
+    left: "0",
+    right: "0",
+    paddingTop: "100px",
+  };
+
   return (
     <div onKeyUp={triggerJump} tabIndex="0">
       <div style={{ display: "flex", justifyContent: "space-evenly" }}>
@@ -166,6 +182,7 @@ const Stage = ({
       >
         <div className="invisible" style={vanishingThings}></div>
         <div style={stageStyling}>
+          <h1 style={gameoverStyling}>Game Over</h1>
           <Sprite
             className={`sprite ${jump ? "jump" : null}`}
             style={spriteStyling}
