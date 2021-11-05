@@ -7,6 +7,7 @@ import Auth from "./component/Auth";
 import CreateUser from "./component/CreateUser";
 import Start from "./component/Start";
 import CharacterCreation from "./component/CharacterCreation";
+import LeaderBoards from "./component/LeaderBoards";
 import { useCallback } from "react";
 
 const API_URL =
@@ -89,6 +90,7 @@ function App() {
   return (
     <div className="App">
       <ThemeProvider theme={theme}>
+        <LeaderBoards API_URL={API_URL}></LeaderBoards>
         <Link to="/start" style={{ textDecoration: "none" }}>
           <h1 className="title">MushVroom</h1>
         </Link>

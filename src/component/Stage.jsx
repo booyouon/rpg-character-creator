@@ -37,6 +37,9 @@ const Stage = ({
   useEffect(() => {
     const spriteDOM = document.querySelector(".sprite");
     const obstacleDOM = document.querySelector(".obstacle");
+    const spriteProp = window.getComputedStyle(spriteDOM);
+    const obstacleProp = window.getComputedStyle(obstacleDOM);
+
     const postHighscore = async () => {
       setHighscore(score);
       const editData = {
@@ -66,23 +69,16 @@ const Stage = ({
     }
     setInterval(() => {
       if (
-        parseInt(
-          window.getComputedStyle(obstacleDOM).getPropertyValue("left")
-        ) <= 50 &&
-        parseInt(
-          window.getComputedStyle(obstacleDOM).getPropertyValue("left")
-        ) >= -10 &&
-        parseInt(window.getComputedStyle(spriteDOM).getPropertyValue("top")) <=
-          235 &&
-        parseInt(window.getComputedStyle(spriteDOM).getPropertyValue("top")) >=
-          210
+        parseInt(obstacleProp.getPropertyValue("left")) <= 50 &&
+        parseInt(obstacleProp.getPropertyValue("left")) >= -10 &&
+        parseInt(spriteProp.getPropertyValue("top")) <= 235 &&
+        parseInt(spriteProp.getPropertyValue("top")) >= 210
       ) {
         setGameover(true);
         setAttempt(attempt + 1);
-        console.log(attempt);
         setScore(0);
       }
-    }, 250);
+    }, 100);
   }, [
     gameover,
     API_URL,
