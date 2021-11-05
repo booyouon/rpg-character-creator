@@ -38,6 +38,10 @@ const Start = ({
   const buttonStyle = {
     width: "300px",
   };
+  const buttonStyleLeader = {
+    width: "300px",
+    backgroundColor: "#063e8b",
+  };
   return (
     <div style={elStyling}>
       {authenticated ? (
@@ -62,6 +66,11 @@ const Start = ({
           <Link to="/character" style={linkStyling}>
             <Button style={buttonStyle} variant="contained">
               Edit Character
+            </Button>
+          </Link>
+          <Link to="/leaderboards" style={linkStyling}>
+            <Button style={buttonStyleLeader} variant="contained">
+              Leaderboards
             </Button>
           </Link>
           <Logout

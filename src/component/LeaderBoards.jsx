@@ -42,7 +42,13 @@ const LeaderBoards = ({ API_URL }) => {
   };
 
   return (
-    <TableContainer component={Paper}>
+    <TableContainer
+      style={{
+        width: "80vw",
+        margin: "0 auto",
+      }}
+      component={Paper}
+    >
       <Table sx={{ minWidth: 200 }} aria-label="customized table">
         <TableBody>
           {rankings.length

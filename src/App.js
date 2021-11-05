@@ -90,7 +90,6 @@ function App() {
   return (
     <div className="App">
       <ThemeProvider theme={theme}>
-        <LeaderBoards API_URL={API_URL}></LeaderBoards>
         <Link to="/start" style={{ textDecoration: "none" }}>
           <h1 className="title">MushVroom</h1>
         </Link>
@@ -173,6 +172,9 @@ function App() {
             nickname={nickname}
             highscore={highscore}
           />
+        </Route>
+        <Route exact path="/leaderboards">
+          <LeaderBoards API_URL={API_URL}></LeaderBoards>
         </Route>
       </ThemeProvider>
     </div>
