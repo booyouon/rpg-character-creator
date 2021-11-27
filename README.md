@@ -18,7 +18,7 @@ Airtable
     {
       "id": "recONRzIUTuZ5lXaF",
       "fields": {
-        "name": "Liz Yrineo",
+        "name": "fish",
         "characterCreated": "False",
         "authID": "0000001",
         "hairColor": "#000000",
@@ -51,16 +51,16 @@ Airtable
 
 ## Project Schedule
 
-| Day           | Deliverable                                                            | Status     |
-| ------------- | ---------------------------------------------------------------------- | ---------- |
-| October 21    | Prompt / Wireframes / Priority Matrix / Timeframes                     | Incomplete |
-| October 22    | Project Approval                                                       | Incomplete |
-| October 23-24 | Core Application Structure (HTML, CSS, etc.), Pseudocode / actual code | Incomplete |
-| October 25    | Pixel Art, Components                                                  | Incomplete |
-| October 26    | Character Creation                                                     | Incomplete |
-| October 27    | MVP                                                                    | Incomplete |
-| October 28    | Prep for presentation, Deployment                                      | Incomplete |
-| October 29    | Presentations                                                          | Incomplete |
+| Day           | Deliverable                                                            | Status   |
+| ------------- | ---------------------------------------------------------------------- | -------- |
+| October 21    | Prompt / Wireframes / Priority Matrix / Timeframes                     | Complete |
+| October 22    | Project Approval                                                       | Complete |
+| October 23-24 | Core Application Structure (HTML, CSS, etc.), Pseudocode / actual code | Complete |
+| October 25    | Pixel Art, Components                                                  | Complete |
+| October 26    | Character Creation                                                     | Complete |
+| October 27    | MVP                                                                    | Complete |
+| October 28    | Prep for presentation, Deployment                                      | Complete |
+| October 29    | Presentations                                                          | Complete |
 
 ## Timeframes
 
