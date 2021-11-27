@@ -1,5 +1,6 @@
 import { Button, Alert, TextField } from "@mui/material";
 import { Box } from "@mui/system";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 const Login = ({
   username,
@@ -13,6 +14,7 @@ const Login = ({
   attempt,
   setAttempt,
 }) => {
+  const [tempPass, setTempPass] = useState("");
   const elStyling = {
     display: "flex",
     flexDirection: "column",
@@ -28,10 +30,10 @@ const Login = ({
   };
   const handleLogin = (ev) => {
     ev.preventDefault();
-    // username isn't case sensitive when submitted so I used a toLowerCase method in order to avoid case sensitivtiy
     setAttempt(attempt + 1);
-    console.log(attempt);
+    setPassword(tempPass);
     setUserSearch(username.toLowerCase());
+    // username isn't case sensitive when submitted so I used a toLowerCase method in order to avoid case sensitivtiy
     setToggleFetch(!toggleFetch);
   };
   return (
@@ -61,12 +63,12 @@ const Login = ({
           required
         ></TextField>
         <TextField
-          value={password}
+          value={tempPass}
           label="Password"
           name="password"
           id="password"
           type="password"
-          onChange={(ev) => setPassword(ev.target.value)}
+          onChange={(ev) => setTempPass(ev.target.value)}
           required
         ></TextField>
         <div style={{ marginTop: "25px" }}>
