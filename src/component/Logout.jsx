@@ -7,6 +7,7 @@ const Logout = ({
   toggleFetch,
   setToggleFetch,
   setAuthenticated,
+  setHighscore,
 }) => {
   const history = useHistory();
 
@@ -17,6 +18,7 @@ const Logout = ({
     setPassword("");
     setUsername("");
     setAuthenticated(false);
+    setHighscore(0);
     setToggleFetch(!toggleFetch);
     history.push("/");
   };

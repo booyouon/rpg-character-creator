@@ -30,7 +30,7 @@ const Login = ({
   };
   const handleLogin = (ev) => {
     ev.preventDefault();
-    setAttempt(attempt + 1);
+    setAttempt((attempt) => attempt + 1);
     setPassword(tempPass);
     setUserSearch(username.toLowerCase());
     // username isn't case sensitive when submitted so I used a toLowerCase method in order to avoid case sensitivtiy
@@ -86,6 +86,9 @@ const Login = ({
             </Button>
           </Link>
         </div>
+        <Link style={{ textDecoration: "none" }} to="/start">
+          <Button color="error">Skip</Button>
+        </Link>
       </Box>
     </div>
   );

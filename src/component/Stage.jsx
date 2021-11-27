@@ -18,6 +18,7 @@ const Stage = ({
   nickname,
   id,
   API_URL,
+  authenticated
 }) => {
   const [jump, setJump] = useState(false);
   const [gameover, setGameover] = useState(true);
@@ -178,7 +179,14 @@ const Stage = ({
       >
         <div className="invisible" style={vanishingThings}></div>
         <div style={stageStyling}>
-          <h1 style={gameoverStyling}>Game Over</h1>
+          <div style={gameoverStyling}>
+            <h1>Game Over </h1>
+            {!authenticated && (
+              <p>
+                (Log in to save your high score and customize your character!)
+              </p>
+            )}
+          </div>
           <Sprite
             className={`sprite ${jump ? "jump" : null}`}
             style={spriteStyling}

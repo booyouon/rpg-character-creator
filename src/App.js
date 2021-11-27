@@ -1,6 +1,6 @@
 import "./App.css";
 import { Link, Route, useHistory } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import axios from "axios";
 import { createTheme, ThemeProvider } from "@mui/material";
 import Auth from "./component/Auth";
@@ -8,7 +8,6 @@ import CreateUser from "./component/CreateUser";
 import Start from "./component/Start";
 import CharacterCreation from "./component/CharacterCreation";
 import LeaderBoards from "./component/LeaderBoards";
-import { useCallback } from "react";
 
 const API_URL =
   "https://api.airtable.com/v0/apps2LmH1EFxMOZEB/Table%201?api_key=keyU3JZHRhRaUZpsv";
@@ -90,7 +89,10 @@ function App() {
   return (
     <div className="App">
       <ThemeProvider theme={theme}>
-        <Link to="/start" style={{ textDecoration: "none" }}>
+        <Link
+          to={authenticated ? "/start" : "/"}
+          style={{ textDecoration: "none" }}
+        >
           <h1 className="title">MushVroom</h1>
         </Link>
 

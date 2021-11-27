@@ -35,7 +35,11 @@ const Start = ({
   const linkStyling = {
     textDecoration: "none",
   };
-  const buttonStyle = {
+  const buttonStyleEdit = {
+    display: !authenticated && "none",
+    width: "300px",
+  };
+  const buttonStyleLog = {
     width: "300px",
   };
   const buttonStyleLeader = {
@@ -44,35 +48,36 @@ const Start = ({
   };
   return (
     <div style={elStyling}>
-      {authenticated ? (
-        <div style={elStyling}>
-          <h1>Welcome, {nickname}!</h1>
-          <Stage
-            capColor={capColor}
-            faceColor={faceColor}
-            capShading={capShading}
-            faceShading={faceShading}
-            eyeColor={eyeColor}
-            cheeksColor={cheeksColor}
-            dotColor={dotColor}
-            highscore={highscore}
-            setHighscore={setHighscore}
-            username={username}
-            password={password}
-            id={id}
-            API_URL={API_URL}
-            nickname={nickname}
-          />
-          <Link to="/character" style={linkStyling}>
-            <Button style={buttonStyle} variant="contained">
-              Edit Character
-            </Button>
-          </Link>
-          <Link to="/leaderboards" style={linkStyling}>
-            <Button style={buttonStyleLeader} variant="contained">
-              Leaderboards
-            </Button>
-          </Link>
+      <div style={elStyling}>
+        <h1>Welcome, {authenticated ? nickname : "guest"}!</h1>
+        <Stage
+          capColor={capColor}
+          faceColor={faceColor}
+          capShading={capShading}
+          faceShading={faceShading}
+          eyeColor={eyeColor}
+          cheeksColor={cheeksColor}
+          dotColor={dotColor}
+          highscore={highscore}
+          setHighscore={setHighscore}
+          username={username}
+          password={password}
+          id={id}
+          API_URL={API_URL}
+          nickname={nickname}
+          authenticated={authenticated}
+        />
+        <Link to="/character" style={linkStyling}>
+          <Button style={buttonStyleEdit} variant="contained">
+            Edit Character
+          </Button>
+        </Link>
+        <Link to="/leaderboards" style={linkStyling}>
+          <Button style={buttonStyleLeader} variant="contained">
+            Leaderboards
+          </Button>
+        </Link>
+        {authenticated ? (
           <Logout
             setUsername={setUsername}
             setPassword={setPassword}
@@ -81,11 +86,16 @@ const Start = ({
             setToggleFetch={setToggleFetch}
             authenticated={authenticated}
             setAuthenticated={setAuthenticated}
+            setHighscore={setHighscore}
           />
-        </div>
-      ) : (
-        <Redirect to={{ pathname: "/" }} />
-      )}
+        ) : (
+          <Link style={{ textDecoration: "none" }} to="/">
+            <Button style={buttonStyleLog} color="primary">
+              Log in
+            </Button>
+          </Link>
+        )}
+      </div>
     </div>
   );
 };
