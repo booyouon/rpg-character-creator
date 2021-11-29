@@ -1,4 +1,4 @@
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Button } from "@mui/material";
 import Logout from "./Logout";
 import Stage from "./Stage";
